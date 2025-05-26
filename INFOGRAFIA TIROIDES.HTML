@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Hipotiroidismo – Análisis Profundo con Consejos IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F1F5F9; /* bg-slate-100 */
+            color: #1E293B; /* text-slate-800 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #FF7F50; /* Coral - Energetic & Playful Palette */
+            margin-bottom: 1.5rem; /* mb-6 */
+            text-align: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .stat-number {
+            font-size: 3rem; /* text-5xl */
+            font-weight: 700; /* font-bold */
+            color: #008080; /* Teal - Energetic & Playful Palette */
+        }
+        .icon-placeholder {
+            font-size: 2.5rem;
+            margin-right: 0.75rem;
+            color: #FF7F50; /* Coral */
+        }
+        .sticky-nav a {
+            color: #008080; /* Teal */
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .sticky-nav a:hover {
+            background-color: #FFD700; /* Gold/Yellow */
+            color: #333333;
+        }
+        .scroll-mt-24 {
+            scroll-margin-top: 6rem; /* Adjust based on sticky header height */
+        }
+        .gemini-response-container {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #E0F2F7; /* Light Teal Background */
+            border-left: 4px solid #008080; /* Teal border */
+            border-radius: 0.375rem;
+            color: #1E293B;
+        }
+        .gemini-response-container ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding-left: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .gemini-response-container p {
+            margin-bottom: 0.75rem;
+        }
+         .gemini-response-container li {
+            margin-bottom: 0.5rem;
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #008080; /* Teal */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-3">
+            <ul class="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4 text-sm sm:text-base sticky-nav">
+                <li><a href="#introduccion">Introducción</a></li>
+                <li><a href="#impacto">Impacto</a></li>
+                <li><a href="#causas">Causas</a></li>
+                <li><a href="#bienestar">Bienestar</a></li>
+                <li><a href="#sintomas-especificos">Síntomas</a></li>
+                <li><a href="#consideraciones">Consideraciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="introduccion" class="mb-16 scroll-mt-24">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4" style="color: #FF7F50;">Hipotiroidismo: Un Análisis Profundo</h1>
+            <p class="text-lg text-center text-slate-700 mb-8">Una mirada integral a la deficiencia hormonal tiroidea, su prevalencia, síntomas y diagnóstico, basada en la investigación actual.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">¿Qué es el Hipotiroidismo?</h3>
+                    <p class="mb-4">El hipotiroidismo es una condición endocrina caracterizada por una producción insuficiente de hormonas por parte de la glándula tiroides. Estas hormonas, tiroxina (T4) y triyodotironina (T3), son cruciales para regular el metabolismo, es decir, la manera en que cada célula del organismo utiliza la energía. Una deficiencia hormonal ralentiza múltiples funciones corporales.</p>
+                    <p>Los síntomas suelen desarrollarse lentamente e incluyen fatiga, aumento de peso, intolerancia al frío, dolores musculares y articulares, piel y cabello secos, estreñimiento y dificultades cognitivas.</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Prevalencia Destacada</h3>
+                    <div class="mb-4">
+                        <p class="stat-number">~5-11%</p>
+                        <p class="text-slate-600">de la población afectada en diversas regiones.</p>
+                    </div>
+                    <p class="text-slate-600 mb-2">Más común en <span class="font-semibold" style="color: #FF69B4;">mujeres</span> y personas <span class="font-semibold" style="color: #FF69B4;">mayores de 50 años</span>.</p>
+                    <div class="chart-container h-64 md:h-72 max-w-sm mx-auto">
+                        <canvas id="prevalenciaChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-500">El diagnóstico se basa en análisis de sangre (TSH y T4 libre).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacto" class="mb-16 scroll-mt-24">
+            <h2 class="section-title">Impacto Fisiológico Directo en el Organismo</h2>
+            <p class="text-center text-slate-700 mb-8">La deficiencia de hormonas tiroideas afecta la función celular básica en prácticamente todos los tejidos y órganos.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">⚡</span>Metabolismo y Mitocondrias</h4>
+                    <p>Ralentización general del metabolismo basal. Disfunción mitocondrial, explicando la fatiga profunda.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">❤️</span>Sistema Cardiovascular</h4>
+                    <p>Bradicardia (ritmo lento), aumento de presión diastólica, riesgo de enfermedad cardíaca y colesterol LDL elevado.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🧠</span>Sistema Nervioso</h4>
+                    <p>Mala memoria, "niebla cerebral", dificultad de concentración, depresión y ansiedad. Neuropatía periférica.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💪</span>Sistema Musculoesquelético</h4>
+                    <p>Dolor y rigidez muscular/articular, debilidad, calambres. Posible reducción del recambio óseo.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💧</span>Piel y Tejido Conectivo</h4>
+                    <p>Piel seca, áspera, pálida. Cabello seco, ralo, quebradizo. Uñas frágiles. Mixedema en casos severos.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🍎</span>Sistema Gastrointestinal</h4>
+                    <p>Ralentización de la motilidad, resultando en estreñimiento frecuente. Disminución del gusto/olfato.</p>
+                </div>
+                <div class="card md:col-span-2 lg:col-span-3">
+                     <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">♀️♂️</span>Sistema Reproductor</h4>
+                    <p>Mujeres: Períodos irregulares/abundantes, problemas de fertilidad. Hombres: Disminución de libido, disfunción eréctil.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="causas" class="mb-16 scroll-mt-24">
+            <h2 class="section-title">Principales Causas del Hipotiroidismo</h2>
+            <p class="text-center text-slate-700 mb-8">Un abordaje multifactorial que incluye factores autoinmunes, nutricionales, ambientales e iatrogénicos.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card lg:col-span-2">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Tiroiditis de Hashimoto</h3>
+                    <p class="mb-2">La causa más común en áreas con suficiente yodo. Es un trastorno autoinmune donde el cuerpo ataca la tiroides, dañándola progresivamente.</p>
+                    <p class="text-sm text-slate-600">Factores: Genética, infecciones virales, estrés, exceso de yodo en susceptibles.</p>
+                    <div class="mt-4 p-3 bg-amber-100 rounded-lg">
+                        <p class="text-sm text-amber-800"><span class="font-semibold">Importante:</span> Se asocia con mayor riesgo de otras enfermedades autoinmunes (celiaquía, diabetes tipo 1).</p>
+                    </div>
+                </div>
+                 <div class="card">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Proporción de Causas</h3>
+                     <div class="chart-container h-72 md:h-80 max-w-sm mx-auto">
+                        <canvas id="causasChart"></canvas>
+                    </div>
+                    <p class="mt-2 text-xs text-center text-slate-500">Representación ilustrativa de la contribución de las causas comunes.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Deficiencias Nutricionales</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><span class="font-semibold">Yodo:</span> Componente esencial de hormonas tiroideas.</li>
+                        <li><span class="font-semibold">Selenio:</span> Conversión T4 a T3, antioxidante.</li>
+                        <li><span class="font-semibold">Hierro:</span> Actividad de la enzima TPO.</li>
+                        <li><span class="font-semibold">Zinc:</span> Síntesis hormonal, función receptora.</li>
+                        <li><span class="font-semibold">Vitamina D:</span> Modulación inmune.</li>
+                        <li><span class="font-semibold">Vitamina B12:</span> Metabolismo, función nerviosa.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Factores Ambientales y EDCs</h3>
+                    <p>Disruptores Endocrinos Químicos (EDCs) como BPA, ftalatos, pesticidas, metales pesados, pueden interferir con la función tiroidea.</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Causas Iatrogénicas</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Cirugía de tiroides (tiroidectomía).</li>
+                        <li>Terapia con yodo radiactivo (I-131).</li>
+                        <li>Radioterapia externa en cuello/cabeza.</li>
+                        <li>Medicamentos (litio, amiodarona, etc.).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mt-6">
+                <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Inflamación Crónica y Estrés Oxidativo</h3>
+                <p>Están íntimamente ligados a la patogénesis, especialmente en Hashimoto. El estrés oxidativo surge de un desequilibrio entre la producción de radicales libres y las defensas antioxidantes. La inflamación perpetúa el daño tisular.</p>
+            </div>
+        </section>
+
+        <section id="bienestar" class="mb-16 scroll-mt-24">
+            <h2 class="section-title">Recuperación de Energía y Bienestar General</h2>
+            <p class="text-center text-slate-700 mb-8">Estrategias integrativas más allá de la levotiroxina para abordar síntomas persistentes como la fatiga.</p>
+            
+            <div class="card mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #008080;">Pilares del Bienestar en el Hipotiroidismo</h3>
+                <div class="flex flex-col md:flex-row justify-around items-center p-4 space-y-4 md:space-y-0 md:space-x-4 rounded-lg border-2 border-dashed border-teal-500">
+                    <div class="text-center p-3">
+                        <span class="text-4xl">💊</span>
+                        <p class="mt-2 font-semibold">Optimizar T3</p>
+                        <p class="text-xs">Conversión T4 a T3.</p>
+                    </div>
+                    <div class="text-center p-3">
+                        <span class="text-4xl">🔋</span>
+                        <p class="mt-2 font-semibold">Salud Mitocondrial</p>
+                        <p class="text-xs">L-Carnitina, CoQ10.</p>
+                    </div>
+                    <div class="text-center p-3">
+                        <span class="text-4xl">🧘</span>
+                        <p class="mt-2 font-semibold">Manejo del Estrés</p>
+                        <p class="text-xs">Adaptógenos (cautela), relajación.</p>
+                    </div>
+                     <div class="text-center p-3">
+                        <span class="text-4xl">😴</span>
+                        <p class="mt-2 font-semibold">Sueño Reparador</p>
+                        <p class="text-xs">Higiene, Magnesio.</p>
+                    </div>
+                    <div class="text-center p-3">
+                        <span class="text-4xl">🏃‍♀️</span>
+                        <p class="mt-2 font-semibold">Ejercicio Adecuado</p>
+                        <p class="text-xs">Fuerza, HIIT (moderado).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Salud Gastrointestinal: Eje Intestino-Tiroides</h3>
+                    <p class="mb-2">Fundamental, especialmente en Hashimoto. Una dieta antiinflamatoria es clave.</p>
+                    <div class="mb-3 p-3 bg-emerald-50 rounded-lg">
+                        <h5 class="font-semibold text-emerald-700">Alimentos Recomendados:</h5>
+                        <ul class="list-disc list-inside text-sm text-emerald-600">
+                            <li>Pescados grasos (salmón), nueces de Brasil (selenio).</li>
+                            <li>Verduras de hoja verde, bayas (antioxidantes).</li>
+                            <li>Aceite de oliva virgen extra, aguacate.</li>
+                            <li>Alimentos fermentados (si se toleran).</li>
+                        </ul>
+                    </div>
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <h5 class="font-semibold text-red-700">A Considerar/Moderar:</h5>
+                        <ul class="list-disc list-inside text-sm text-red-600">
+                            <li>Goitrógenos (crucíferas crudas en exceso).</li>
+                            <li>Soja (puede interferir con L-T4).</li>
+                            <li>Gluten y lácteos (si hay sensibilidad/celiaquía).</li>
+                            <li>Alimentos procesados, azúcares añadidos.</li>
+                        </ul>
+                    </div>
+                    <p class="mt-3 text-sm">Abordar disbiosis, SIBO e hipoclorhidria (baja acidez estomacal) puede ser necesario con probióticos, enzimas digestivas o betaína HCl bajo supervisión.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Micronutrientes Clave y su Reposición</h3>
+                    <p class="mb-3">Corregir deficiencias es vital. La malabsorción puede ser un problema.</p>
+                    <div class="space-y-3">
+                        <div class="p-3 border border-yellow-300 rounded-lg bg-yellow-50">
+                            <h5 class="font-semibold" style="color: #FFD700;">Hierro</h5>
+                            <p class="text-sm text-yellow-700">Combate anemia y fatiga. Esencial para la enzima TPO.</p>
+                        </div>
+                        <div class="p-3 border border-pink-300 rounded-lg bg-pink-50">
+                            <h5 class="font-semibold" style="color: #FF69B4;">Vitamina B12</h5>
+                            <p class="text-sm text-pink-700">Función neurológica, energía. Deficiencia común en gastritis autoinmune.</p>
+                        </div>
+                        <div class="p-3 border border-blue-300 rounded-lg bg-blue-50">
+                            <h5 class="font-semibold" style="color: #ADD8E6;">Vitamina D</h5>
+                            <p class="text-sm text-blue-700">Modulación inmune. Deficiencia común en Hashimoto.</p>
+                        </div>
+                         <div class="p-3 border border-teal-300 rounded-lg bg-teal-50">
+                            <h5 class="font-semibold" style="color: #008080;">Selenio y Zinc</h5>
+                            <p class="text-sm text-teal-700">Cruciales para conversión T4-T3 y protección antioxidante.</p>
+                        </div>
+                    </div>
+                     <div class="mt-4 chart-container h-64 md:h-72 max-w-md mx-auto">
+                        <canvas id="micronutrientesChart"></canvas>
+                    </div>
+                    <p class="mt-2 text-xs text-center text-slate-500">Importancia relativa de algunos micronutrientes.</p>
+                </div>
+            </div>
+
+            <div class="card mt-8 md:col-span-2">
+                <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #FF7F50;">✨ Consejos de Bienestar Potenciados por IA</h3>
+                <p class="text-center text-slate-600 mb-4">Selecciona tus principales preocupaciones para recibir sugerencias generales de dieta y estilo de vida. Esta herramienta es informativa y no reemplaza el consejo médico.</p>
+                
+                <div class="mb-4 space-y-2">
+                    <label class="block text-slate-700 font-semibold mb-1">Mis principales preocupaciones son:</label>
+                    <div>
+                        <input type="checkbox" id="concernFatiga" name="concerns" value="Fatiga Persistente" class="mr-2">
+                        <label for="concernFatiga">Fatiga Persistente</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="concernDigestivos" name="concerns" value="Problemas Digestivos" class="mr-2">
+                        <label for="concernDigestivos">Problemas Digestivos (hinchazón, estreñimiento)</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="concernNiebla" name="concerns" value="Niebla Mental" class="mr-2">
+                        <label for="concernNiebla">Niebla Mental / Dificultad de Concentración</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="concernEstres" name="concerns" value="Manejo del Estrés y Ánimo" class="mr-2">
+                        <label for="concernEstres">Manejo del Estrés y Ánimo Bajo</label>
+                    </div>
+                     <div>
+                        <input type="checkbox" id="concernPielCabello" name="concerns" value="Piel y Cabello Secos" class="mr-2">
+                        <label for="concernPielCabello">Piel y Cabello Secos</label>
+                    </div>
+                </div>
+
+                <button id="getGeminiAdviceBtn" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                    ✨ Obtener Consejos con IA
+                </button>
+
+                <div id="geminiLoader" class="loader hidden my-4"></div>
+                <div id="geminiResponse" class="gemini-response-container hidden">
+                    <p>Aquí se mostrarán los consejos generados por la IA...</p>
+                </div>
+            </div>
+            </section>
+
+        <section id="sintomas-especificos" class="mb-16 scroll-mt-24">
+            <h2 class="section-title">Conexión de Síntomas Específicos</h2>
+            <p class="text-center text-slate-700 mb-8">Análisis de cómo ciertos síntomas comunes se relacionan con el hipotiroidismo.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤢</span>Reflujo Gástrico (ERGE)</h4>
+                    <p class="text-sm">Frecuente. Mecanismos: enlentecimiento vaciamiento gástrico, hipoclorhidria, SIBO, gastritis autoinmune. Abordaje: optimizar T4/T3, tratar causas subyacentes (hipoclorhidria, SIBO), dieta.</p>
+                </div>
+                 <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦵</span>Dolor de Piernas/Calambres</h4>
+                    <p class="text-sm">Común. Mecanismos: miopatía hipotiroidea, acumulación mucopolisacáridos, deficiencias (Mg, Vit D), neuropatía. Abordaje: optimizar T4/T3, suplementar deficiencias, ejercicio suave.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🖐️</span>Problemas Tendinosos (STC)</h4>
+                    <p class="text-sm">Frecuente (Síndrome Túnel Carpiano). Mecanismo: acumulación de mucopolisacáridos y líquido en tejido conectivo, compresión nerviosa. Abordaje: optimizar T4/T3, fisioterapia, férulas.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤯</span>Niebla Cerebral y Mala Memoria</h4>
+                    <p class="text-sm">Muy común. Mecanismos: ↓ metabolismo cerebral, alteración neurotransmisores, neuroinflamación (Hashimoto), deficiencias (B12, hierro). Abordaje: optimizar T4/T3 (considerar T3), corregir deficiencias, dieta, sueño, estrés.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦴</span>Dolor Articular/Artralgia</h4>
+                    <p class="text-sm">Común. Mecanismos: inflamación sinovial, acumulación mucopolisacáridos, coexistencia con Artritis Reumatoide (en Hashimoto). Abordaje: optimizar T4/T3, AINEs, dieta antiinflamatoria, investigar AR.</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">👁️</span>Ojos Secos</h4>
+                    <p class="text-sm">Co-ocurrente, especialmente con Sjögren/Hashimoto. Mecanismos: autoinmunidad afectando glándulas lacrimales, inflamación. Abordaje: optimizar T4/T3, lágrimas artificiales, manejo inflamación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="consideraciones" class="mb-12 scroll-mt-24">
+            <h2 class="section-title">Consideraciones Adicionales y Conclusión</h2>
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Importancia de la Individualización y Colaboración Profesional</h3>
+                <p class="mb-3">El manejo del hipotiroidismo requiere un enfoque altamente individualizado. No existe un tratamiento "talla única". La dosis de levotiroxina, las intervenciones dietéticas y los suplementos deben ajustarse a las necesidades únicas de cada paciente.</p>
+                <p class="mb-3">La persistencia de síntomas a pesar de TSH normalizada subraya la necesidad de una colaboración estrecha con endocrinólogos, médicos de atención primaria y nutricionistas para explorar factores como problemas de conversión T4-T3, deficiencias nutricionales, salud mitocondrial e inflamación.</p>
+                
+                <div class="mt-6 p-4 border-l-4 border-yellow-500 bg-yellow-100 text-yellow-800 rounded-md">
+                    <h4 class="font-bold text-lg mb-2">⚠️ Advertencia Importante</h4>
+                    <p class="text-sm">La información presentada en esta infografía tiene fines exclusivamente educativos e informativos. No pretende, bajo ninguna circunstancia, sustituir la consulta médica profesional, el diagnóstico o el tratamiento individualizado.</p>
+                    <p class="text-sm mt-2">Cualquier decisión relacionada con su salud, incluyendo cambios en medicación o dieta, debe ser tomada únicamente en consulta y bajo la supervisión de un profesional de la salud cualificado.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center p-6 bg-slate-800 text-slate-300 text-sm">
+        <p>&copy; 2025 Infografía sobre Hipotiroidismo. Basado en investigación integral.</p>
+        <p>Consulte siempre a un profesional médico para obtener asesoramiento personalizado.</p>
+    </footer>
+
+    <script>
+        function processLabel(label, maxLength = 16) {
+            if (typeof label !== 'string') {
+                return label; 
+            }
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            }
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            if (!item) return '';
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { size: 10 },
+                        boxWidth: 20,
+                        padding:15
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    bodyFont: { size: 10 },
+                    titleFont: { size: 12 }
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const prevalenciaCtx = document.getElementById('prevalenciaChart');
+            if (prevalenciaCtx) {
+                new Chart(prevalenciaCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [processLabel('Personas con Hipotiroidismo (Estimado)'), processLabel('Resto de la Población (Estimado)')],
+                        datasets: [{
+                            label: 'Prevalencia Estimada',
+                            data: [8, 92], 
+                            backgroundColor: ['#FF7F50', '#ADD8E6'],
+                            borderColor: ['#FFFFFF', '#FFFFFF'],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: { ...sharedChartOptions }
+                });
+            }
+
+            const causasCtx = document.getElementById('causasChart');
+            if (causasCtx) {
+                 new Chart(causasCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: [processLabel('Tiroiditis de Hashimoto'), processLabel('Deficiencia de Yodo'), processLabel('Causas Iatrogénicas'), processLabel('Otras Deficiencias/Factores')],
+                        datasets: [{
+                            label: 'Distribución de Causas Comunes',
+                            data: [60, 15, 15, 10], 
+                            backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4'],
+                             borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: { ...sharedChartOptions }
+                });
+            }
+            
+            const micronutrientesCtx = document.getElementById('micronutrientesChart');
+            if (micronutrientesCtx) {
+                new Chart(micronutrientesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: [processLabel('Selenio'), processLabel('Hierro'), processLabel('Vitamina D'), processLabel('Zinc'), processLabel('Vitamina B12')],
+                        datasets: [{
+                            label: 'Importancia Relativa para Función Tiroidea',
+                            data: [90, 85, 80, 75, 70], 
+                            backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4', '#ADD8E6'],
+                            borderColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4', '#ADD8E6'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        ...sharedChartOptions,
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: { font: {size: 10} }
+                            },
+                            y: {
+                                ticks: { font: {size: 10} }
+                            }
+                        },
+                        plugins: {
+                            ...sharedChartOptions.plugins,
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // Gemini API Integration
+            const getAdviceBtn = document.getElementById('getGeminiAdviceBtn');
+            const geminiResponseDiv = document.getElementById('geminiResponse');
+            const geminiLoader = document.getElementById('geminiLoader');
+
+            if (getAdviceBtn) {
+                getAdviceBtn.addEventListener('click', async () => {
+                    const selectedConcerns = [];
+                    document.querySelectorAll('input[name="concerns"]:checked').forEach((checkbox) => {
+                        selectedConcerns.push(checkbox.value);
+                    });
+
+                    if (selectedConcerns.length === 0) {
+                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Por favor, selecciona al menos una preocupación para obtener consejos.</p>';
+                        geminiResponseDiv.classList.remove('hidden');
+                        return;
+                    }
+
+                    geminiLoader.classList.remove('hidden');
+                    geminiResponseDiv.classList.add('hidden');
+                    geminiResponseDiv.innerHTML = ''; 
+
+                    const prompt = `Eres un asistente virtual informativo especializado en bienestar y hipotiroidismo. Un usuario con hipotiroidismo ha expresado las siguientes preocupaciones: ${selectedConcerns.join(', ')}. 
+                    Proporciona 3 o 4 consejos generales y prácticos sobre dieta y estilo de vida que podrían ayudar a abordar estas preocupaciones específicas en el contexto del hipotiroidismo.
+                    Cada consejo debe ser una viñeta (empieza con '* ').
+                    Incluye una breve introducción y una conclusión enfatizando que estos son consejos generales y no sustituyen la consulta médica profesional.
+                    Responde en español, en un tono amigable, empático y de apoyo. No utilices markdown para títulos o negritas.`;
+                    
+                    const apiKey = ""; 
+                    const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey;
+                    
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            console.error('Error de la API de Gemini:', errorData);
+                            throw new Error('Error de la API: ' + response.status + ' ' + response.statusText + '. ' + (errorData?.error?.message || ''));
+                        }
+
+                        const result = await response.json();
+                        
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            
+                            let rawText = result.candidates[0].content.parts[0].text;
+                            let lines = rawText.split('\n'); // Split by actual newline character
+                            let htmlOutput = "";
+                            let inList = false;
+
+                            for (let i = 0; i < lines.length; i++) {
+                                let currentLine = lines[i].trim();
+
+                                if (currentLine.startsWith('* ') || currentLine.startsWith('- ')) {
+                                    if (!inList) {
+                                        htmlOutput += "<ul>\n";
+                                        inList = true;
+                                    }
+                                    htmlOutput += "<li>" + currentLine.substring(2) + "</li>\n";
+                                } else {
+                                    if (inList) {
+                                        htmlOutput += "</ul>\n";
+                                        inList = false;
+                                    }
+                                    if (currentLine !== "") {
+                                        htmlOutput += "<p>" + currentLine + "</p>\n";
+                                    }
+                                }
+                            }
+
+                            if (inList) { // Ensure any open list is closed
+                                htmlOutput += "</ul>\n";
+                            }
+                            geminiResponseDiv.innerHTML = htmlOutput.trim();
+
+                        } else {
+                            geminiResponseDiv.innerHTML = '<p class="text-red-600">No se pudo obtener una respuesta de la IA en este momento. Por favor, inténtalo de nuevo más tarde.</p>';
+                            console.error('Respuesta inesperada de la API de Gemini:', result);
+                        }
+                    } catch (error) {
+                        console.error('Error al llamar a la API de Gemini:', error);
+                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Ocurrió un error al intentar obtener los consejos: ' + error.message + '. Por favor, revisa la consola para más detalles.</p>';
+                    } finally {
+                        geminiLoader.classList.add('hidden');
+                        geminiResponseDiv.classList.remove('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
