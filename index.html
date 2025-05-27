@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía: Hipotiroidismo – Análisis Profundo y Detallado</title>
+    <title>Infografía: Hipotiroidismo – Análisis con Guía de Bienestar Predefinida</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +96,7 @@
             margin-left: 1.25rem;
             padding-left: 0.25rem;
         }
-        .gemini-response-container {
+        .advice-container { /* Formerly gemini-response-container */
             margin-top: 1rem;
             padding: 1rem;
             background-color: #E0F2F7; /* Light Teal Background */
@@ -103,21 +105,48 @@
             color: #1E293B;
             font-size: 0.875rem; /* text-sm */
         }
-        .gemini-response-container ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding-left: 0.5rem;
+        .advice-container h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600;
+            color: #FF7F50; /* Coral */
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+        .advice-container h5 {
+            font-size: 1rem; /* text-base */
+            font-weight: 600;
+            color: #008080; /* Teal */
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+        .advice-container ul {
+            list-style-type: none;
+            padding-left: 0;
             margin-bottom: 0.75rem;
         }
-        .gemini-response-container p {
-            margin-bottom: 0.75rem;
-        }
-         .gemini-response-container li {
+        .advice-container li {
             margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
-        .loader {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #008080; /* Teal */
+        .advice-container li.recomendacion::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: green;
+        }
+        .advice-container li.evitar::before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+            color: red;
+        }
+        .advice-container p {
+            margin-bottom: 0.75rem;
+        }
+        .loader { /* Kept for visual feedback, even if short */
+            border: 4px solid #f3f3f3; 
+            border-top: 4px solid #008080; 
             border-radius: 50%;
             width: 30px;
             height: 30px;
@@ -254,8 +283,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card text-sm md:text-base lg:col-span-2">
-                    <div class="card-content">
+                 <div class="card text-sm md:text-base lg:col-span-2"> <div class="card-content">
                         <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">♀️♂️</span>Sistema Reproductor y Fertilidad</h4>
                         <p>Las hormonas tiroideas son esenciales para la función reproductiva normal tanto en mujeres como en hombres.</p>
                         <div class="explanation-block">
@@ -264,16 +292,17 @@
                                 <li><strong>Irregularidades Menstruales:</strong> Períodos abundantes (menorragia), ausentes (amenorrea) o infrecuentes (oligomenorrea).</li>
                                 <li><strong>Problemas de Ovulación:</strong> Anovulación (ausencia de ovulación) o disfunción ovulatoria.</li>
                                 <li><strong>Infertilidad:</strong> Dificultad para concebir.</li>
-                                <li><strong>Síndrome de Ovario Poliquístico (SOP):</strong> Existe una asociación. El hipotiroidismo puede contribuir a la resistencia a la insulina y a desequilibrios hormonales (aumento de prolactina, alteración LH/FSH) que se observan en el SOP, empeorando sus síntomas como irregularidades menstruales, acné e hirsutismo. Tratar el hipotiroidismo puede mejorar algunos aspectos del SOP.</li>
-                                <li><strong>Complicaciones en el Embarazo:</strong> Mayor riesgo de aborto espontáneo, parto prematuro, preeclampsia, bajo peso al nacer y problemas de desarrollo neurológico en el bebé si no se trata.</li>
+                                <li><strong>Síndrome de Ovario Poliquístico (SOP):</strong> Existe una asociación significativa. El hipotiroidismo (clínico o subclínico) puede exacerbar o contribuir al SOP a través de varios mecanismos: puede causar o empeorar la resistencia a la insulina, aumentar los niveles de prolactina, alterar el equilibrio de las hormonas LH/FSH y andrógenos, afectando la ovulación y contribuyendo a la formación de quistes. Tratar el hipotiroidismo es fundamental y puede mejorar muchos parámetros del SOP.</li>
+                                <li><strong>Complicaciones en el Embarazo:</strong> Mayor riesgo de aborto espontáneo, parto prematuro, preeclampsia, desprendimiento de placenta, bajo peso al nacer y problemas de desarrollo neurológico y cognitivo en el bebé si el hipotiroidismo materno no se detecta y trata adecuadamente.</li>
                             </ul>
-                            <h5>En Hombres:</h5>
+                            <h5 class="mt-3">En Hombres:</h5>
                              <ul>
-                                <li><strong>Disminución de la Libido:</strong> Bajo deseo sexual.</li>
+                                <li><strong>Disminución de la Libido:</strong> Reducción del deseo sexual.</li>
                                 <li><strong>Disfunción Eréctil:</strong> Dificultad para lograr o mantener una erección.</li>
-                                <li><strong>Alteraciones en la Calidad del Semen:</strong> Puede afectar la concentración, motilidad (movimiento) y morfología (forma) de los espermatozoides.</li>
-                                <li><strong>Azoospermia:</strong> Ausencia total de espermatozoides en el eyaculado. Aunque es una causa menos común, el hipotiroidismo severo y no tratado puede afectar la espermatogénesis (producción de esperma) a nivel testicular o alterar las hormonas que la regulan (testosterona, FSH, LH).</li>
-                                <li><strong>Infertilidad:</strong> Dificultad para concebir.</li>
+                                <li><strong>Alteraciones en la Calidad del Semen:</strong> Puede afectar negativamente la concentración de espermatozoides (oligozoospermia), su motilidad (astenozoospermia) y su morfología (teratozoospermia).</li>
+                                <li><strong>Azoospermia:</strong> Es la ausencia total de espermatozoides en el eyaculado. Aunque es una causa menos frecuente de infertilidad masculina, el hipotiroidismo severo y no tratado puede interferir con la espermatogénesis (proceso de formación de espermatozoides) a nivel testicular, ya sea directamente o alterando el eje hormonal hipotálamo-pituitaria-testicular que regula la producción de testosterona y otras hormonas necesarias.</li>
+                                <li><strong>Infertilidad:</strong> Dificultad para concebir debido a los factores anteriores.</li>
+                                <li><strong>Alteraciones Hormonales:</strong> Puede haber disminución de los niveles de testosterona total y libre, y a veces aumento de prolactina.</li>
                             </ul>
                         </div>
                     </div>
@@ -293,20 +322,23 @@
                             <p><strong>Autoinmune:</strong> Significa que el sistema de defensas del cuerpo (sistema inmunitario) se confunde y, en lugar de atacar solo a invasores externos (como virus o bacterias), ataca a sus propias células y tejidos. En Hashimoto, los anticuerpos (como anti-TPO y anti-Tg) atacan las células tiroideas, causando inflamación crónica (tiroiditis) y destrucción gradual de la glándula.</p>
                             <p>Factores: Predisposición genética, infecciones virales (ej. Epstein-Barr), estrés crónico, exposición a toxinas ambientales, y en personas susceptibles, un exceso de yodo.</p>
                         </div>
-                        <div class="mt-4 p-3 bg-amber-100 rounded-lg">
-                            <h5 class="font-semibold text-amber-700">Enfermedades Autoinmunes Asociadas a Hashimoto:</h5>
+                         <div class="mt-4 p-3 bg-amber-100 rounded-lg">
+                            <h5 class="font-semibold text-amber-700">Enfermedades Autoinmunes Frecuentemente Asociadas a Hashimoto:</h5>
                             <p class="text-sm text-amber-800 mb-2">Las personas con Hashimoto tienen un mayor riesgo de desarrollar otras enfermedades autoinmunes debido a una predisposición genética compartida y a mecanismos inmunes similares. Es importante estar atento a síntomas de estas condiciones:</p>
                             <ul class="list-disc list-inside text-xs text-amber-700 space-y-1">
-                                <li><strong>Enfermedad Celíaca:</strong> Reacción inmune al gluten que daña el intestino delgado, causando malabsorción. Síntomas: diarrea, hinchazón, fatiga, anemia.</li>
-                                <li><strong>Diabetes Mellitus Tipo 1:</strong> El sistema inmune destruye las células beta del páncreas que producen insulina. Síntomas: sed excesiva, micción frecuente, hambre, pérdida de peso.</li>
-                                <li><strong>Artritis Reumatoide:</strong> Inflamación crónica de las articulaciones, causando dolor, hinchazón y rigidez.</li>
-                                <li><strong>Gastritis Atrófica Autoinmune (y Anemia Perniciosa):</strong> Ataque a las células del estómago que producen ácido y factor intrínseco (necesario para absorber B12). Causa deficiencia de B12, anemia.</li>
-                                <li><strong>Síndrome de Sjögren:</strong> Ataque a las glándulas que producen lágrimas y saliva. Síntomas: ojos y boca secos, fatiga, dolor articular.</li>
-                                <li><strong>Vitíligo:</strong> Pérdida de melanocitos (células productoras de pigmento), causando manchas blancas en la piel.</li>
-                                <li><strong>Enfermedad de Addison:</strong> Insuficiencia de las glándulas suprarrenales para producir cortisol y aldosterona. Síntomas: fatiga extrema, pérdida de peso, baja presión, oscurecimiento de la piel.</li>
-                                <li><strong>Lupus Eritematoso Sistémico (LES):</strong> Enfermedad inflamatoria crónica que puede afectar articulaciones, piel, riñones, sangre, cerebro.</li>
-                                <li><strong>Hepatitis Autoinmune:</strong> El sistema inmune ataca las células del hígado.</li>
-                                <li><strong>Esclerosis Múltiple (EM):</strong> El sistema inmune ataca la mielina (cubierta protectora de los nervios) en cerebro y médula espinal. La asociación con Hashimoto es más compleja y puede haber factores compartidos.</li>
+                                <li><strong>Enfermedad Celíaca:</strong> Reacción inmune al gluten que daña el intestino delgado, causando malabsorción. Se recomienda cribado en pacientes con Hashimoto.</li>
+                                <li><strong>Diabetes Mellitus Tipo 1:</strong> El sistema inmune destruye las células beta del páncreas que producen insulina. Requiere insulina de por vida.</li>
+                                <li><strong>Artritis Reumatoide:</strong> Inflamación crónica y dolorosa de las articulaciones, pudiendo causar deformidad.</li>
+                                <li><strong>Gastritis Atrófica Autoinmune y Anemia Perniciosa:</strong> Ataque a las células del estómago que producen ácido gástrico y factor intrínseco (necesario para absorber vitamina B12). Causa deficiencia de B12 y anemia megaloblástica.</li>
+                                <li><strong>Síndrome de Sjögren:</strong> Ataque autoinmune a las glándulas que producen lágrimas y saliva. Causa sequedad extrema de ojos y boca, fatiga y dolor articular.</li>
+                                <li><strong>Vitíligo:</strong> El sistema inmune destruye los melanocitos (células productoras de pigmento), causando manchas blancas en la piel y mucosas.</li>
+                                <li><strong>Enfermedad de Addison (Insuficiencia Suprarrenal Primaria):</strong> El sistema inmune daña las glándulas suprarrenales, disminuyendo la producción de cortisol y aldosterona. Causa fatiga extrema, debilidad, pérdida de peso, baja presión arterial, hiperpigmentación de la piel.</li>
+                                <li><strong>Lupus Eritematoso Sistémico (LES):</strong> Enfermedad inflamatoria crónica multisistémica que puede afectar articulaciones, piel, riñones, células sanguíneas, cerebro, corazón y pulmones.</li>
+                                <li><strong>Hepatitis Autoinmune:</strong> El sistema inmune ataca las células del hígado (hepatocitos), causando inflamación y daño hepático.</li>
+                                <li><strong>Insuficiencia Ovárica Primaria (Fallo Ovárico Prematuro):</strong> Pérdida de la función ovárica antes de los 40 años, a menudo de causa autoinmune.</li>
+                                 <li><strong>Dermatitis Herpetiforme:</strong> Manifestación cutánea de la enfermedad celíaca, con ampollas y picor intenso.</li>
+                                 <li><strong>Polimialgia Reumática:</strong> Causa dolor y rigidez en cuello, hombros y caderas, más común en mayores de 50 años.</li>
+                                 <li><strong>Esclerosis Sistémica (Esclerodermia):</strong> Endurecimiento y engrosamiento de la piel y tejido conectivo; puede afectar órganos internos.</li>
                             </ul>
                         </div>
                     </div>
@@ -379,8 +411,7 @@
                         <span class="text-3xl md:text-4xl">🔋</span>
                         <p class="mt-1 font-semibold text-xs md:text-sm">Salud Mitocondrial</p>
                         <div class="explanation-block text-xs !p-1">
-                            <p><strong>L-Carnitina:</strong> Aminoácido que ayuda a transportar grasas a las mitocondrias para quemarlas y producir energía. Se encuentra en carnes rojas (cordero, ternera), pescado, pollo, lácteos; menos en espárragos, aguacate. Suplementos: L-carnitina L-tartrato, Acetil-L-carnitina (cruza barrera cerebral, útil para energía mental).</p>
-                            <p><strong>CoQ10 (Ubiquinona/Ubiquinol):</strong> Sustancia vital en la cadena de producción de energía (ATP) en las mitocondrias y potente antioxidante. Se halla en carnes (corazón, hígado), pescados grasos (salmón, sardinas), aceites (soja), frutos secos (cacahuetes), espinacas. Suplementos: Ubiquinol es la forma activa, mejor absorbida, pero más cara; Ubiquinona es más común.</p>
+                           Nutrientes como L-Carnitina (transporte de grasa para energía) y CoQ10 (producción de ATP y antioxidante) son clave para la energía celular. Suplementos bajo supervisión.
                         </div>
                     </div>
                     <div class="text-center p-2">
@@ -400,8 +431,26 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="card mt-8"> 
+                <div class="card-content">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Profundizando en Salud Mitocondrial: L-Carnitina y CoQ10</h3>
+                    <div class="explanation-block text-sm">
+                        <h5>L-Carnitina</h5>
+                        <p>Es un aminoácido que actúa como un "transportador", llevando los ácidos grasos (combustible) al interior de las mitocondrias (los "hornos" de las células) para que puedan ser quemados y convertidos en energía (ATP). Es crucial para el metabolismo energético, especialmente en músculos y corazón.</p>
+                        <p><strong>Fuentes alimentarias:</strong> Principalmente carnes rojas (cordero, ternera), pescado, pollo y productos lácteos. En menor medida en alimentos vegetales como espárragos y aguacate.</p>
+                        <p><strong>Suplementación:</strong> Formas como L-carnitina L-tartrato o Acetil-L-carnitina (esta última cruza mejor la barrera hematoencefálica, pudiendo ayudar con la energía mental y la función cognitiva) pueden considerarse bajo supervisión profesional, especialmente si hay fatiga significativa, la dieta es restrictiva en fuentes animales, o hay condiciones que aumentan su demanda.</p>
 
-            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                        <h5 class="mt-4">Coenzima Q10 (CoQ10)</h5>
+                        <p>También conocida como ubiquinona (forma oxidada) o ubiquinol (forma reducida y activa), la CoQ10 es una sustancia similar a una vitamina, esencial en la cadena de transporte de electrones dentro de las mitocondrias. Este proceso es fundamental para la producción de ATP, la principal molécula de energía celular. Además, la CoQ10 es un potente antioxidante liposoluble que protege las membranas celulares y las mitocondrias del daño oxidativo.</p>
+                        <p><strong>Fuentes alimentarias:</strong> Carnes (especialmente órganos como corazón, hígado, riñón), pescados grasos (salmón, sardinas, caballa), aceites vegetales (soja, sésamo, aunque en menor cantidad y calidad que fuentes animales), frutos secos (cacahuetes, pistachos) y algunas verduras (espinacas, brócoli).</p>
+                        <p><strong>Producción y Suplementación:</strong> El cuerpo produce CoQ10, pero esta producción tiende a disminuir con la edad y puede verse afectada por ciertas enfermedades o medicamentos (como las estatinas). La suplementación puede ser beneficiosa para apoyar la energía y la protección antioxidante. El ubiquinol suele ser mejor absorbido y más biodisponible que la ubiquinona, especialmente en personas mayores o con problemas de absorción, aunque es más costoso. Consulte siempre a un profesional antes de suplementar.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="grid md:grid-cols-2 gap-8 items-stretch mt-8">
                 <div class="card">
                     <div class="card-content">
                         <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Salud Gastrointestinal y Dieta Antiinflamatoria</h3>
@@ -409,15 +458,15 @@
                         <div class="mb-3 p-3 bg-emerald-50 rounded-lg text-xs md:text-sm">
                             <h5 class="font-semibold text-emerald-700">Alimentos Recomendados (Priorizar Orgánicos y de Pastoreo si es posible):</h5>
                             <ul class="list-disc list-inside text-emerald-600">
-                                <li><strong>Pescados grasos (Omega-3) y Mariscos:</strong> Salmón salvaje, sardinas, caballa, arenque, trucha arcoíris, anchoas, mejillones, ostras (ricas en zinc).</li>
-                                <li><strong>Nueces de Brasil (Selenio):</strong> 1-3 al día son suficientes (no exceder por toxicidad de selenio).</li>
-                                <li><strong>Verduras de hoja verde oscuro:</strong> Espinacas, kale (col rizada), acelgas, rúcula, berros, hojas de mostaza, hojas de remolacha, lechuga romana.</li>
-                                <li><strong>Frutas coloridas (bajas en azúcar y ricas en antioxidantes):</strong> Arándanos, fresas, frambuesas, moras, cerezas, granada, kiwi, limones, limas.</li>
-                                <li><strong>Grasas saludables:</strong> Aceite de oliva virgen extra (AOVE), aguacate y su aceite, aceitunas, aceite de coco virgen (con moderación), ghee (mantequilla clarificada, si se toleran lácteos).</li>
-                                <li><strong>Otras verduras variadas (muchos colores):</strong> Brócoli (cocido), coliflor (cocida), zanahorias, remolacha, calabacín, pepino, apio, pimientos (si se toleran solanáceas), espárragos, champiñones y otras setas.</li>
-                                <li><strong>Hierbas y especias antiinflamatorias:</strong> Cúrcuma (con pimienta negra para absorción), jengibre, romero, orégano, tomillo, canela, ajo, cebolla.</li>
-                                <li><strong>Alimentos fermentados (Probióticos, si se toleran y no hay SIBO activo):</strong> Kéfir de agua o de coco, chucrut (col fermentada cruda), kimchi, yogur natural de coco sin azúcar, kombucha (baja en azúcar).</li>
-                                 <li><strong>Caldo de huesos:</strong> Rico en colágeno y aminoácidos que pueden ayudar a la salud intestinal.</li>
+                                <li><strong>Pescados grasos (Omega-3) y Mariscos:</strong> Salmón salvaje, sardinas, caballa, arenque, trucha arcoíris, anchoas, bacalao, lenguado, mejillones, ostras (ricas en zinc), gambas.</li>
+                                <li><strong>Nueces de Brasil (Selenio):</strong> 1-3 al día son suficientes (no exceder por toxicidad de selenio). Otras nueces: almendras, nueces de nogal, pecanas, macadamias, pistachos (sin sal y crudas o tostadas ligeramente).</li>
+                                <li><strong>Verduras de hoja verde oscuro:</strong> Espinacas, kale (col rizada), acelgas, rúcula, berros, hojas de mostaza, hojas de remolacha, lechuga romana, endivias, canónigos.</li>
+                                <li><strong>Frutas coloridas (bajas en azúcar y ricas en antioxidantes):</strong> Arándanos, fresas, frambuesas, moras, cerezas, granada, kiwi, limones, limas, pomelo, papaya (con moderación).</li>
+                                <li><strong>Grasas saludables:</strong> Aceite de oliva virgen extra (AOVE), aguacate y su aceite, aceitunas, aceite de coco virgen (con moderación), ghee (mantequilla clarificada, si se toleran lácteos), semillas de chía, lino, sésamo, calabaza, girasol.</li>
+                                <li><strong>Otras verduras variadas (muchos colores):</strong> Brócoli (cocido), coliflor (cocida), zanahorias, remolacha, calabacín, pepino, apio, pimientos (todos los colores, si se toleran solanáceas), espárragos, champiñones y otras setas (shiitake, maitake, ostra), judías verdes, alcachofas, hinojo, puerros.</li>
+                                <li><strong>Hierbas y especias antiinflamatorias:</strong> Cúrcuma (con pimienta negra para absorción), jengibre, romero, orégano, tomillo, canela, ajo, cebolla, perejil, cilantro.</li>
+                                <li><strong>Alimentos fermentados (Probióticos, si se toleran y no hay SIBO activo):</strong> Kéfir de agua o de coco, chucrut (col fermentada cruda, no pasteurizada), kimchi, yogur natural de coco sin azúcar, kombucha (baja en azúcar y con moderación), tempeh, miso.</li>
+                                 <li><strong>Caldo de huesos:</strong> Casero o de buena calidad, rico en colágeno, glicina y otros aminoácidos que pueden ayudar a la salud de la barrera intestinal.</li>
                             </ul>
                         </div>
                         <div class="p-3 bg-red-50 rounded-lg text-xs md:text-sm">
@@ -579,40 +628,28 @@
                 </div>
 
                 <div class="card mt-8 md:col-span-2">
-                    <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center" style="color: #FF7F50;">✨ Consejos de Bienestar Potenciados por IA</h3>
-                    <p class="text-center text-slate-600 mb-4 text-sm md:text-base">Selecciona tus principales preocupaciones para recibir sugerencias generales de dieta y estilo de vida. Esta herramienta es informativa y no reemplaza el consejo médico.</p>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center" style="color: #FF7F50;">✨ Guía de Bienestar Predefinida</h3>
+                    <p class="text-center text-slate-600 mb-4 text-sm md:text-base">Selecciona tus principales preocupaciones para recibir sugerencias generales de dieta y estilo de vida. Esta guía es informativa y no reemplaza el consejo médico.</p>
                     
                     <div class="mb-4 space-y-2 text-sm md:text-base">
                         <label class="block text-slate-700 font-semibold mb-1">Mis principales preocupaciones son:</label>
-                        <div>
-                            <input type="checkbox" id="concernFatiga" name="concerns" value="Fatiga Persistente" class="mr-2">
-                            <label for="concernFatiga">Fatiga Persistente</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="concernDigestivos" name="concerns" value="Problemas Digestivos" class="mr-2">
-                            <label for="concernDigestivos">Problemas Digestivos (hinchazón, estreñimiento)</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="concernNiebla" name="concerns" value="Niebla Mental" class="mr-2">
-                            <label for="concernNiebla">Niebla Mental / Dificultad de Concentración</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="concernEstres" name="concerns" value="Manejo del Estrés y Ánimo" class="mr-2">
-                            <label for="concernEstres">Manejo del Estrés y Ánimo Bajo</label>
-                        </div>
-                         <div>
-                            <input type="checkbox" id="concernPielCabello" name="concerns" value="Piel y Cabello Secos" class="mr-2">
-                            <label for="concernPielCabello">Piel y Cabello Secos</label>
-                        </div>
+                        <div><input type="checkbox" id="concernFatiga" name="concerns" value="Fatiga Persistente" class="mr-2"><label for="concernFatiga">Fatiga Persistente</label></div>
+                        <div><input type="checkbox" id="concernDigestivos" name="concerns" value="Problemas Digestivos" class="mr-2"><label for="concernDigestivos">Problemas Digestivos (hinchazón, estreñimiento, etc.)</label></div>
+                        <div><input type="checkbox" id="concernNiebla" name="concerns" value="Niebla Mental" class="mr-2"><label for="concernNiebla">Niebla Mental / Dificultad de Concentración</label></div>
+                        <div><input type="checkbox" id="concernEstres" name="concerns" value="Manejo del Estrés y Ánimo" class="mr-2"><label for="concernEstres">Manejo del Estrés y Ánimo Bajo</label></div>
+                        <div><input type="checkbox" id="concernPielCabello" name="concerns" value="Piel y Cabello Secos" class="mr-2"><label for="concernPielCabello">Piel y Cabello Secos</label></div>
+                        <div><input type="checkbox" id="concernDolorArticular" name="concerns" value="Dolor Articular o Muscular" class="mr-2"><label for="concernDolorArticular">Dolor Articular o Muscular</label></div>
+                        <div><input type="checkbox" id="concernSueno" name="concerns" value="Problemas de Sueño" class="mr-2"><label for="concernSueno">Problemas de Sueño</label></div>
+                        <div><input type="checkbox" id="concernIntoleranciaFrio" name="concerns" value="Intolerancia al Frío" class="mr-2"><label for="concernIntoleranciaFrio">Intolerancia al Frío</label></div>
                     </div>
 
-                    <button id="getGeminiAdviceBtn" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
-                        ✨ Obtener Consejos con IA
+                    <button id="getAdviceBtn" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                        ✨ Ver Guía de Consejos
                     </button>
 
-                    <div id="geminiLoader" class="loader hidden my-4"></div>
-                    <div id="geminiResponse" class="gemini-response-container hidden">
-                        <p>Aquí se mostrarán los consejos generados por la IA...</p>
+                    <div id="adviceLoader" class="loader hidden my-4"></div>
+                    <div id="adviceResponse" class="advice-container hidden">
+                        <p>Aquí se mostrarán los consejos predefinidos...</p>
                     </div>
                 </div>
             </section>
@@ -757,6 +794,125 @@
             }
         };
 
+        const consejosPredefinidos = {
+            "Fatiga Persistente": {
+                "introduccion": "Para combatir la fatiga persistente, considera estos enfoques nutricionales y de estilo de vida, siempre de la mano con tu tratamiento médico:",
+                "recomendaciones": {
+                    "titulo": "Nutrición y Suplementos de Apoyo:",
+                    "general": [
+                        "Asegura una dieta rica en nutrientes antiinflamatorios y densa en vitaminas y minerales.",
+                        "Considera alimentos ricos en hierro (carnes rojas magras, espinacas, lentejas) si hay deficiencia.",
+                        "Optimiza tus niveles de Vitamina B12 (carnes, huevos, pescado o suplemento de metilcobalamina).",
+                        "Verifica tus niveles de Vitamina D y suplementa si es necesario (D3 con K2).",
+                        "Magnesio (glicinato, malato) puede ayudar con la energía y relajación muscular.",
+                        "L-Carnitina y CoQ10 pueden apoyar la función mitocondrial (energía celular), consulta a tu médico sobre su idoneidad y dosis."
+                    ],
+                    "frutasVerduras": [
+                        "<strong>Frutas recomendadas:</strong> Bayas (arándanos, fresas, frambuesas por sus antioxidantes), manzanas, peras.",
+                        "<strong>Verduras recomendadas:</strong> Abundantes hojas verdes (espinacas, kale cocido), boniato (energía sostenida), pimientos (vitamina C), zanahorias."
+                    ]
+                },
+                "habitos": {
+                    "titulo": "Hábitos de Vida para Mejorar la Energía:",
+                    "lista": [
+                        "Prioriza 7-9 horas de sueño reparador cada noche; establece una rutina de sueño.",
+                        "Realiza ejercicio regular adaptado: combina entrenamiento de fuerza con cardio moderado (caminatas, natación). Evita el sobreentrenamiento.",
+                        "Maneja el estrés activamente: técnicas como meditación, yoga suave, respiración profunda, pasar tiempo en la naturaleza.",
+                        "Mantén una hidratación adecuada a lo largo del día.",
+                        "Evita saltarte comidas para mantener niveles de energía estables."
+                    ]
+                },
+                "evitar": {
+                    "titulo": "Alimentos y Hábitos a Moderar o Evitar:",
+                    "lista": [
+                        "Azúcares refinados y alimentos ultraprocesados (pueden causar picos y caídas de energía).",
+                        "Exceso de cafeína y estimulantes (pueden llevar a agotamiento a largo plazo).",
+                        "Comidas muy copiosas o ricas en grasas procesadas que dificulten la digestión.",
+                        "Alcohol (puede interferir con el sueño y la energía).",
+                        "Sedentarismo prolongado."
+                    ]
+                },
+                "conclusion": "Recuerda, estos son consejos generales. Es fundamental trabajar con tu médico y un nutricionista para un plan adaptado a tus necesidades individuales."
+            },
+            "Problemas Digestivos": {
+                "introduccion": "Para los problemas digestivos como hinchazón o estreñimiento, considera estas estrategias enfocadas en la salud intestinal:",
+                "recomendaciones": {
+                    "titulo": "Nutrición y Suplementos de Apoyo:",
+                    "general": [
+                        "Adopta una dieta antiinflamatoria, rica en fibra soluble e insoluble (de frutas, verduras, semillas).",
+                        "Considera alimentos ricos en probióticos (kéfir, chucrut, kimchi, yogur de coco) si los toleras y no hay SIBO activo.",
+                        "Asegura una buena hidratación (agua, infusiones digestivas como jengibre, menta, manzanilla).",
+                        "Si se sospecha hipoclorhidria (baja acidez), discute con tu médico el uso de betaína HCl con pepsina con las comidas proteicas.",
+                        "Enzimas digestivas pueden ser útiles temporalmente para mejorar la descomposición de alimentos.",
+                        "Investiga sensibilidades alimentarias (gluten, lácteos, soja son comunes)."
+                    ],
+                     "frutasVerduras": [
+                        "<strong>Frutas recomendadas:</strong> Papaya (contiene papaína, enzima digestiva), ciruelas, kiwi (fibra), bayas.",
+                        "<strong>Verduras recomendadas:</strong> Verduras de hoja verde, calabacín, pepino, espárragos, jengibre fresco. Verduras crucíferas bien cocidas."
+                    ]
+                },
+                 "habitos": {
+                    "titulo": "Hábitos de Vida para Mejorar la Digestión:",
+                    "lista": [
+                        "Come despacio y mastica bien los alimentos.",
+                        "Evita comer con estrés o prisas.",
+                        "Realiza actividad física regular para estimular la motilidad intestinal.",
+                        "Considera un masaje abdominal suave.",
+                        "Si el estreñimiento es un problema, asegúrate de suficiente fibra y líquidos; el magnesio citrato puede ayudar."
+                    ]
+                },
+                "evitar": {
+                    "titulo": "Alimentos y Hábitos a Moderar o Evitar:",
+                    "lista": [
+                        "Alimentos ultraprocesados, fritos y ricos en grasas saturadas.",
+                        "Exceso de azúcares refinados y edulcorantes artificiales (pueden alterar microbiota).",
+                        "Bebidas carbonatadas (pueden causar gases e hinchazón).",
+                        "Grandes cantidades de legumbres o crucíferas crudas si causan malestar (mejor cocidas y en porciones moderadas).",
+                        "Comer grandes cantidades de comida de una vez."
+                    ]
+                },
+                "conclusion": "Si los problemas digestivos son severos o persistentes, consulta a tu médico para descartar SIBO, enfermedad celíaca u otras condiciones."
+            },
+             "Niebla Mental": {
+                "introduccion": "Para mejorar la claridad mental y la concentración, es importante nutrir el cerebro y reducir factores que contribuyen a la 'niebla':",
+                "recomendaciones": {
+                    "titulo": "Nutrición y Suplementos de Apoyo:",
+                    "general": [
+                        "Dieta rica en Omega-3 (pescados grasos como salmón y sardinas, semillas de chía y lino).",
+                        "Asegura niveles óptimos de Vitamina B12 y Hierro.",
+                        "Antioxidantes de frutas y verduras coloridas (bayas, hojas verdes).",
+                        "Considera Acetil-L-Carnitina o fosfatidilserina bajo supervisión profesional.",
+                        "Niveles adecuados de Vitamina D."
+                    ],
+                     "frutasVerduras": [
+                        "<strong>Frutas recomendadas:</strong> Arándanos ('brainberries'), aguacate (grasas saludables para el cerebro), fresas, naranjas.",
+                        "<strong>Verduras recomendadas:</strong> Brócoli (cocido), espinacas, kale, remolacha (puede mejorar flujo sanguíneo cerebral)."
+                    ]
+                },
+                 "habitos": {
+                    "titulo": "Hábitos de Vida para la Claridad Mental:",
+                    "lista": [
+                        "Sueño de calidad y suficiente (7-9 horas).",
+                        "Ejercicio regular (mejora flujo sanguíneo al cerebro).",
+                        "Técnicas de manejo del estrés.",
+                        "Mantén la mente activa (leer, aprender cosas nuevas, puzzles).",
+                        "Reduce multitarea y distracciones."
+                    ]
+                },
+                "evitar": {
+                    "titulo": "Alimentos y Hábitos a Moderar o Evitar:",
+                    "lista": [
+                        "Azúcares refinados y alimentos procesados.",
+                        "Grasas trans y aceites vegetales refinados.",
+                        "Exceso de alcohol.",
+                        "Falta de sueño y estrés crónico.",
+                        "Deshidratación."
+                    ]
+                },
+                "conclusion": "La optimización del tratamiento tiroideo es el primer paso. Si la niebla persiste, explora estos factores con tu equipo de salud."
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 const prevalenciaCtx = document.getElementById('prevalenciaChart');
@@ -832,101 +988,71 @@
                  console.error("Error al inicializar los gráficos:", error);
             }
 
-            // Gemini API Integration
-            const getAdviceBtn = document.getElementById('getGeminiAdviceBtn');
-            const geminiResponseDiv = document.getElementById('geminiResponse');
-            const geminiLoader = document.getElementById('geminiLoader');
+            // Predefined Advice Integration
+            const getAdviceBtn = document.getElementById('getAdviceBtn');
+            const adviceResponseDiv = document.getElementById('adviceResponse');
+            const adviceLoader = document.getElementById('adviceLoader');
 
             if (getAdviceBtn) {
-                getAdviceBtn.addEventListener('click', async () => {
+                getAdviceBtn.addEventListener('click', () => {
                     const selectedConcerns = [];
                     document.querySelectorAll('input[name="concerns"]:checked').forEach((checkbox) => {
                         selectedConcerns.push(checkbox.value);
                     });
 
+                    adviceLoader.classList.remove('hidden');
+                    adviceResponseDiv.classList.add('hidden');
+                    adviceResponseDiv.innerHTML = ''; 
+
                     if (selectedConcerns.length === 0) {
-                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Por favor, selecciona al menos una preocupación para obtener consejos.</p>';
-                        geminiResponseDiv.classList.remove('hidden');
+                        adviceResponseDiv.innerHTML = '<p class="text-red-600">Por favor, selecciona al menos una preocupación para obtener consejos.</p>';
+                        adviceLoader.classList.add('hidden');
+                        adviceResponseDiv.classList.remove('hidden');
                         return;
                     }
-
-                    geminiLoader.classList.remove('hidden');
-                    geminiResponseDiv.classList.add('hidden');
-                    geminiResponseDiv.innerHTML = ''; 
-
-                    const prompt = `Eres un asistente virtual informativo especializado en bienestar y hipotiroidismo. Un usuario con hipotiroidismo ha expresado las siguientes preocupaciones: ${selectedConcerns.join(', ')}. 
-                    Proporciona 3 o 4 consejos generales y prácticos sobre dieta y estilo de vida que podrían ayudar a abordar estas preocupaciones específicas en el contexto del hipotiroidismo.
-                    Cada consejo debe ser una viñeta (empieza con '* ').
-                    Incluye una breve introducción y una conclusión enfatizando que estos son consejos generales y no sustituyen la consulta médica profesional.
-                    Responde en español, en un tono amigable, empático y de apoyo. No utilices markdown para títulos o negritas.`;
                     
-                    const apiKey = ""; 
-                    const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey;
-                    
-                    let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                    const payload = { contents: chatHistory };
-
-                    try {
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (!response.ok) {
-                            const errorData = await response.json();
-                            console.error('Error de la API de Gemini:', errorData);
-                            throw new Error('Error de la API: ' + response.status + ' ' + response.statusText + '. ' + (errorData?.error?.message || ''));
-                        }
-
-                        const result = await response.json();
-                        
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
+                    let htmlOutput = "";
+                    selectedConcerns.forEach(concernKey => {
+                        const advice = consejosPredefinidos[concernKey];
+                        if (advice) {
+                            htmlOutput += `<h4>Guía para: ${concernKey}</h4>`;
+                            if(advice.introduccion) htmlOutput += `<p><em>${advice.introduccion}</em></p>`;
                             
-                            let rawText = result.candidates[0].content.parts[0].text;
-                            let lines = rawText.split('\n'); 
-                            let htmlOutput = "";
-                            let inList = false;
-
-                            for (let i = 0; i < lines.length; i++) {
-                                let currentLine = lines[i].trim();
-
-                                if (currentLine.startsWith('* ') || currentLine.startsWith('- ')) {
-                                    if (!inList) {
-                                        htmlOutput += "<ul>\n";
-                                        inList = true;
-                                    }
-                                    htmlOutput += "<li>" + currentLine.substring(2) + "</li>\n";
-                                } else {
-                                    if (inList) {
-                                        htmlOutput += "</ul>\n";
-                                        inList = false;
-                                    }
-                                    if (currentLine !== "") {
-                                        htmlOutput += "<p>" + currentLine + "</p>\n";
-                                    } 
+                            if (advice.recomendaciones) {
+                                htmlOutput += `<h5>${advice.recomendaciones.titulo || '✅ Recomendaciones:'}</h5>`;
+                                if (advice.recomendaciones.general && advice.recomendaciones.general.length > 0) {
+                                    htmlOutput += "<ul>";
+                                    advice.recomendaciones.general.forEach(item => { htmlOutput += `<li class="recomendacion">${item}</li>`; });
+                                    htmlOutput += "</ul>";
+                                }
+                                if (advice.recomendaciones.frutasVerduras && advice.recomendaciones.frutasVerduras.length > 0) {
+                                     htmlOutput += "<ul>";
+                                    advice.recomendaciones.frutasVerduras.forEach(item => { htmlOutput += `<li class="recomendacion">${item}</li>`; });
+                                    htmlOutput += "</ul>";
                                 }
                             }
-
-                            if (inList) { 
-                                htmlOutput += "</ul>\n";
+                             if (advice.habitos && advice.habitos.lista && advice.habitos.lista.length > 0) {
+                                htmlOutput += `<h5>${advice.habitos.titulo || 'Hábitos de Vida Sugeridos:'}</h5><ul>`;
+                                advice.habitos.lista.forEach(item => { htmlOutput += `<li class="recomendacion">${item}</li>`; });
+                                htmlOutput += "</ul>";
                             }
-                            geminiResponseDiv.innerHTML = htmlOutput.trim();
 
-                        } else {
-                            geminiResponseDiv.innerHTML = '<p class="text-red-600">No se pudo obtener una respuesta de la IA en este momento. Por favor, inténtalo de nuevo más tarde.</p>';
-                            console.error('Respuesta inesperada de la API de Gemini:', result);
+                            if (advice.evitar && advice.evitar.lista && advice.evitar.lista.length > 0) {
+                                htmlOutput += `<h5>${advice.evitar.titulo || '❌ A Considerar/Evitar:'}</h5><ul>`;
+                                advice.evitar.lista.forEach(item => { htmlOutput += `<li class="evitar">${item}</li>`; });
+                                htmlOutput += "</ul>";
+                            }
+                            if(advice.conclusion) htmlOutput += `<p class="mt-3"><em>${advice.conclusion}</em></p>`;
+                            htmlOutput += "<hr class='my-4 border-teal-200'>";
                         }
-                    } catch (error) {
-                        console.error('Error al llamar a la API de Gemini:', error);
-                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Ocurrió un error al intentar obtener los consejos: ' + error.message + '. Si el error persiste, puede que la API Key no esté configurada.</p>';
-                    } finally {
-                        geminiLoader.classList.add('hidden');
-                        geminiResponseDiv.classList.remove('hidden');
-                    }
+                    });
+
+                    // Simulate a short delay for loader
+                    setTimeout(() => {
+                        adviceResponseDiv.innerHTML = htmlOutput || '<p>No se encontraron consejos para las preocupaciones seleccionadas.</p>';
+                        adviceLoader.classList.add('hidden');
+                        adviceResponseDiv.classList.remove('hidden');
+                    }, 500);
                 });
             }
         });
