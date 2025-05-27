@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía: Hipotiroidismo – Análisis Profundo con Consejos IA</title>
+    <title>Infografía: Hipotiroidismo – Análisis Profundo y Detallado</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,8 @@
             margin-right: auto;
         }
         .section-title {
-            font-size: 2.25rem; /* text-4xl */
+            font-size: 1.875rem; /* text-3xl */
+            md:font-size: 2.25rem; /* md:text-4xl */
             font-weight: 700; /* font-bold */
             color: #FF7F50; /* Coral - Energetic & Playful Palette */
             margin-bottom: 1.5rem; /* mb-6 */
@@ -32,22 +33,35 @@
             background-color: white;
             border-radius: 0.5rem; /* rounded-lg */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-            padding: 1.5rem; /* p-6 */
+            padding: 1rem; /* p-4 */
+            md:padding: 1.5rem; /* md:p-6 */
             margin-bottom: 1.5rem; /* mb-6 */
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* For equal height cards in grid */
+        }
+        .card-content {
+            flex-grow: 1;
         }
         .stat-number {
-            font-size: 3rem; /* text-5xl */
+            font-size: 2.5rem; /* Adjusted for mobile */
+            md:font-size: 3rem; /* md:text-5xl */
             font-weight: 700; /* font-bold */
             color: #008080; /* Teal - Energetic & Playful Palette */
         }
         .icon-placeholder {
-            font-size: 2.5rem;
+            font-size: 2rem; /* Adjusted for mobile */
+            md:font-size: 2.5rem;
             margin-right: 0.75rem;
             color: #FF7F50; /* Coral */
+            flex-shrink: 0;
         }
         .sticky-nav a {
             color: #008080; /* Teal */
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.5rem; /* Adjusted padding */
+            font-size: 0.8rem; /* Adjusted font size */
+            sm:font-size: 1rem;
+            sm:padding: 0.5rem 1rem;
             border-radius: 0.375rem; /* rounded-md */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
@@ -58,6 +72,28 @@
         .scroll-mt-24 {
             scroll-margin-top: 6rem; /* Adjust based on sticky header height */
         }
+        .explanation-block {
+            margin-top: 0.5rem;
+            padding: 0.75rem; /* Increased padding */
+            background-color: #f8f9fa; /* very light grey */
+            border-left: 3px solid #FFD700; /* Gold/Yellow accent */
+            font-size: 0.85rem; /* Slightly smaller for explanation */
+            line-height: 1.5; /* Improved line height */
+        }
+        .explanation-block strong {
+            color: #008080; /* Teal for scientific terms */
+        }
+        .explanation-block h5 {
+            font-weight: 600;
+            color: #008080;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .explanation-block ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            padding-left: 0.25rem;
+        }
         .gemini-response-container {
             margin-top: 1rem;
             padding: 1rem;
@@ -65,6 +101,7 @@
             border-left: 4px solid #008080; /* Teal border */
             border-radius: 0.375rem;
             color: #1E293B;
+            font-size: 0.875rem; /* text-sm */
         }
         .gemini-response-container ul {
             list-style-type: disc;
@@ -96,7 +133,7 @@
 <body>
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 py-3">
-            <ul class="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4 text-sm sm:text-base sticky-nav">
+            <ul class="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4 sticky-nav">
                 <li><a href="#introduccion">Introducción</a></li>
                 <li><a href="#impacto">Impacto</a></li>
                 <li><a href="#causas">Causas</a></li>
@@ -110,296 +147,563 @@
     <main class="container mx-auto p-4 md:p-8">
 
         <section id="introduccion" class="mb-16 scroll-mt-24">
-            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4" style="color: #FF7F50;">Hipotiroidismo: Un Análisis Profundo</h1>
-            <p class="text-lg text-center text-slate-700 mb-8">Una mirada integral a la deficiencia hormonal tiroidea, su prevalencia, síntomas y diagnóstico, basada en la investigación actual.</p>
+            <h1 class="text-3xl md:text-5xl font-bold text-center mb-4" style="color: #FF7F50;">Hipotiroidismo: Un Análisis Profundo y Detallado</h1>
+            <p class="text-base md:text-lg text-center text-slate-700 mb-8">Una mirada integral a la deficiencia hormonal tiroidea, su prevalencia, síntomas y diagnóstico, basada en la investigación actual.</p>
             
-            <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">¿Qué es el Hipotiroidismo?</h3>
-                    <p class="mb-4">El hipotiroidismo es una condición endocrina caracterizada por una producción insuficiente de hormonas por parte de la glándula tiroides. Estas hormonas, tiroxina (T4) y triyodotironina (T3), son cruciales para regular el metabolismo, es decir, la manera en que cada célula del organismo utiliza la energía. Una deficiencia hormonal ralentiza múltiples funciones corporales.</p>
-                    <p>Los síntomas suelen desarrollarse lentamente e incluyen fatiga, aumento de peso, intolerancia al frío, dolores musculares y articulares, piel y cabello secos, estreñimiento y dificultades cognitivas.</p>
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">¿Qué es el Hipotiroidismo?</h3>
+                        <p class="mb-4 text-sm md:text-base">El hipotiroidismo es una condición endocrina donde la glándula tiroides no produce suficientes hormonas tiroideas (T4 y T3). Estas hormonas son cruciales para regular el metabolismo general del cuerpo.</p>
+                        <div class="explanation-block">
+                            <p><strong>Metabolismo:</strong> Piensa en ello como el motor interno de tu cuerpo; las hormonas tiroideas son como el acelerador que controla cuán rápido funciona ese motor para usar energía, generar calor y mantener los órganos activos.</p>
+                        </div>
+                        <p class="mt-3 mb-2 text-sm md:text-base">Síntomas comunes: fatiga, aumento de peso, intolerancia al frío, dolores, piel seca, estreñimiento, problemas cognitivos. El desarrollo es lento y los síntomas variables.</p>
+                         <div class="explanation-block">
+                            <p><strong>Coma mixedematoso:</strong> Es una complicación rara pero muy grave del hipotiroidismo no tratado, donde las funciones corporales se ralentizan peligrosamente, pudiendo llevar a pérdida de consciencia e incluso la muerte.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card text-center">
-                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Prevalencia Destacada</h3>
-                    <div class="mb-4">
-                        <p class="stat-number">~5-11%</p>
-                        <p class="text-slate-600">de la población afectada en diversas regiones.</p>
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Prevalencia y Diagnóstico</h3>
+                        <div class="mb-4">
+                            <p class="stat-number">~5-11%</p>
+                            <p class="text-slate-600 text-sm md:text-base">de la población afectada en diversas regiones.</p>
+                        </div>
+                        <p class="text-slate-600 mb-2 text-sm md:text-base">Más común en <span class="font-semibold" style="color: #FF69B4;">mujeres</span> y personas <span class="font-semibold" style="color: #FF69B4;">mayores de 50 años</span>.</p>
+                        <div class="chart-container h-52 sm:h-56 md:h-64 max-w-xs mx-auto">
+                            <canvas id="prevalenciaChart"></canvas>
+                        </div>
+                        <p class="mt-4 text-sm text-slate-500">Diagnóstico: análisis de sangre.</p>
+                        <div class="explanation-block">
+                            <p><strong>TSH (Hormona Estimulante de la Tiroides):</strong> Producida por la glándula pituitaria en el cerebro. Actúa como un mensajero que le dice a la tiroides que trabaje. Si la tiroides está "perezosa" (hipotiroidismo primario), la pituitaria grita más fuerte (TSH alta) para intentar despertarla.</p>
+                            <p><strong>T4 Libre (Tiroxina Libre):</strong> Mide la hormona tiroidea principal (T4) que está circulando libremente en la sangre y lista para ser usada por las células o convertida en T3. Un nivel bajo de T4 Libre con TSH alta confirma hipotiroidismo primario (la tiroides no produce suficiente).</p>
+                        </div>
                     </div>
-                    <p class="text-slate-600 mb-2">Más común en <span class="font-semibold" style="color: #FF69B4;">mujeres</span> y personas <span class="font-semibold" style="color: #FF69B4;">mayores de 50 años</span>.</p>
-                    <div class="chart-container h-64 md:h-72 max-w-sm mx-auto">
-                        <canvas id="prevalenciaChart"></canvas>
-                    </div>
-                    <p class="mt-4 text-sm text-slate-500">El diagnóstico se basa en análisis de sangre (TSH y T4 libre).</p>
                 </div>
             </div>
         </section>
 
         <section id="impacto" class="mb-16 scroll-mt-24">
-            <h2 class="section-title">Impacto Fisiológico Directo en el Organismo</h2>
-            <p class="text-center text-slate-700 mb-8">La deficiencia de hormonas tiroideas afecta la función celular básica en prácticamente todos los tejidos y órganos.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">⚡</span>Metabolismo y Mitocondrias</h4>
-                    <p>Ralentización general del metabolismo basal. Disfunción mitocondrial, explicando la fatiga profunda.</p>
+            <h2 class="section-title">Impacto Fisiológico Detallado</h2>
+            <p class="text-center text-slate-700 mb-8 text-sm md:text-base">La deficiencia de hormonas tiroideas afecta la función celular en casi todos los sistemas.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                 <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">⚡</span>Metabolismo y Mitocondrias</h4>
+                        <p>Ralentización general del metabolismo basal (gasto energético en reposo). Menor producción de energía.</p>
+                        <div class="explanation-block">
+                            <p><strong>Mitocondrias:</strong> Son las "centrales energéticas" dentro de cada célula. Las hormonas tiroideas son esenciales para que funcionen correctamente. En el hipotiroidismo, las mitocondrias pueden volverse menos eficientes y reducir su número, lo que se traduce en fatiga profunda y falta de energía generalizada.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">❤️</span>Sistema Cardiovascular</h4>
-                    <p>Bradicardia (ritmo lento), aumento de presión diastólica, riesgo de enfermedad cardíaca y colesterol LDL elevado.</p>
+                <div class="card text-sm md:text-base">
+                     <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">❤️</span>Sistema Cardiovascular</h4>
+                        <p>Ritmo cardíaco lento (bradicardia), aumento de colesterol LDL ("malo") y triglicéridos, mayor riesgo de aterosclerosis (endurecimiento de arterias), hipertensión diastólica.</p>
+                        <div class="explanation-block">
+                             <p><strong>Bradicardia:</strong> Es cuando el corazón late más lento de lo normal (generalmente menos de 60 latidos por minuto en reposo).</p>
+                             <p><strong>Colesterol LDL:</strong> Es el tipo de colesterol que, en exceso, puede depositarse en las paredes de las arterias formando placas (aterosclerosis), lo que aumenta el riesgo de infartos y otros problemas cardíacos.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🧠</span>Sistema Nervioso</h4>
-                    <p>Mala memoria, "niebla cerebral", dificultad de concentración, depresión y ansiedad. Neuropatía periférica.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🧠</span>Sistema Nervioso</h4>
+                        <p>"Niebla cerebral", problemas de memoria y concentración, lentitud mental, depresión, ansiedad, neuropatía periférica (hormigueo, dolor o debilidad en manos/pies).</p>
+                        <div class="explanation-block">
+                             <p><strong>Niebla cerebral:</strong> Sensación persistente de confusión, olvidos frecuentes y dificultad para pensar con claridad o enfocarse.</p>
+                             <p><strong>Neuropatía periférica:</strong> Daño a los nervios que están fuera del cerebro y la médula espinal. Puede causar sensaciones anormales como hormigueo, ardor, o debilidad muscular.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💪</span>Sistema Musculoesquelético</h4>
-                    <p>Dolor y rigidez muscular/articular, debilidad, calambres. Posible reducción del recambio óseo.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💪</span>Sistema Musculoesquelético</h4>
+                        <p>Dolor y rigidez muscular (mialgia) y articular (artralgia), debilidad muscular, calambres, posible miopatía (enfermedad muscular).</p>
+                        <div class="explanation-block">
+                            <p><strong>Miopatía hipotiroidea:</strong> Afectación muscular directa por la baja función tiroidea, que produce debilidad (especialmente en músculos proximales como hombros y caderas), calambres, dolor y a veces aumento del tamaño muscular (pseudohipertrofia).</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💧</span>Piel y Tejido Conectivo</h4>
-                    <p>Piel seca, áspera, pálida. Cabello seco, ralo, quebradizo. Uñas frágiles. Mixedema en casos severos.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">💧</span>Piel y Tejido Conectivo</h4>
+                        <p>Piel seca, áspera, escamosa, pálida y fría. Cabello seco, ralo, quebradizo. Uñas frágiles y de crecimiento lento. En casos severos, mixedema.</p>
+                        <div class="explanation-block">
+                            <p><strong>Mixedema:</strong> Hinchazón característica, especialmente en cara (párpados, labios), manos y pies, que no deja fóvea (no se hunde al presionar). Se debe a la acumulación de unas sustancias gelatinosas llamadas mucopolisacáridos (como el ácido hialurónico) en la piel y otros tejidos.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🍎</span>Sistema Gastrointestinal</h4>
-                    <p>Ralentización de la motilidad, resultando en estreñimiento frecuente. Disminución del gusto/olfato.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🍎</span>Sistema Gastrointestinal</h4>
+                        <p>Motilidad intestinal reducida (tránsito lento) que lleva a estreñimiento frecuente, posible hipoclorhidria (baja acidez estomacal), mala absorción de nutrientes.</p>
+                         <div class="explanation-block">
+                            <p><strong>Hipoclorhidria:</strong> Producción deficiente de ácido clorhídrico en el estómago. Este ácido es vital para digerir proteínas, absorber minerales (hierro, calcio, zinc) y vitamina B12, y para proteger contra infecciones bacterianas.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card md:col-span-2 lg:col-span-3">
-                     <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">♀️♂️</span>Sistema Reproductor</h4>
-                    <p>Mujeres: Períodos irregulares/abundantes, problemas de fertilidad. Hombres: Disminución de libido, disfunción eréctil.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🧪</span>Hígado y Riñones</h4>
+                        <p>Función hepática alterada (puede afectar el metabolismo de lípidos y la detoxificación). Reducción de la tasa de filtración glomerular en riñones (capacidad de limpiar la sangre).</p>
+                        <div class="explanation-block">
+                            <p>El hígado es clave para convertir la hormona T4 (menos activa) en T3 (más activa). Los riñones ayudan a eliminar el exceso de yodo y su función puede verse afectada por la disminución del flujo sanguíneo y del metabolismo general.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-sm md:text-base lg:col-span-2">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">♀️♂️</span>Sistema Reproductor y Fertilidad</h4>
+                        <p>Las hormonas tiroideas son esenciales para la función reproductiva normal tanto en mujeres como en hombres.</p>
+                        <div class="explanation-block">
+                            <h5>En Mujeres:</h5>
+                            <ul>
+                                <li><strong>Irregularidades Menstruales:</strong> Períodos abundantes (menorragia), ausentes (amenorrea) o infrecuentes (oligomenorrea).</li>
+                                <li><strong>Problemas de Ovulación:</strong> Anovulación (ausencia de ovulación) o disfunción ovulatoria.</li>
+                                <li><strong>Infertilidad:</strong> Dificultad para concebir.</li>
+                                <li><strong>Síndrome de Ovario Poliquístico (SOP):</strong> Existe una asociación. El hipotiroidismo puede contribuir a la resistencia a la insulina y a desequilibrios hormonales (aumento de prolactina, alteración LH/FSH) que se observan en el SOP, empeorando sus síntomas como irregularidades menstruales, acné e hirsutismo. Tratar el hipotiroidismo puede mejorar algunos aspectos del SOP.</li>
+                                <li><strong>Complicaciones en el Embarazo:</strong> Mayor riesgo de aborto espontáneo, parto prematuro, preeclampsia, bajo peso al nacer y problemas de desarrollo neurológico en el bebé si no se trata.</li>
+                            </ul>
+                            <h5>En Hombres:</h5>
+                             <ul>
+                                <li><strong>Disminución de la Libido:</strong> Bajo deseo sexual.</li>
+                                <li><strong>Disfunción Eréctil:</strong> Dificultad para lograr o mantener una erección.</li>
+                                <li><strong>Alteraciones en la Calidad del Semen:</strong> Puede afectar la concentración, motilidad (movimiento) y morfología (forma) de los espermatozoides.</li>
+                                <li><strong>Azoospermia:</strong> Ausencia total de espermatozoides en el eyaculado. Aunque es una causa menos común, el hipotiroidismo severo y no tratado puede afectar la espermatogénesis (producción de esperma) a nivel testicular o alterar las hormonas que la regulan (testosterona, FSH, LH).</li>
+                                <li><strong>Infertilidad:</strong> Dificultad para concebir.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="causas" class="mb-16 scroll-mt-24">
             <h2 class="section-title">Principales Causas del Hipotiroidismo</h2>
-            <p class="text-center text-slate-700 mb-8">Un abordaje multifactorial que incluye factores autoinmunes, nutricionales, ambientales e iatrogénicos.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p class="text-center text-slate-700 mb-8 text-sm md:text-base">Un abordaje multifactorial detallado.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                 <div class="card lg:col-span-2">
-                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Tiroiditis de Hashimoto</h3>
-                    <p class="mb-2">La causa más común en áreas con suficiente yodo. Es un trastorno autoinmune donde el cuerpo ataca la tiroides, dañándola progresivamente.</p>
-                    <p class="text-sm text-slate-600">Factores: Genética, infecciones virales, estrés, exceso de yodo en susceptibles.</p>
-                    <div class="mt-4 p-3 bg-amber-100 rounded-lg">
-                        <p class="text-sm text-amber-800"><span class="font-semibold">Importante:</span> Se asocia con mayor riesgo de otras enfermedades autoinmunes (celiaquía, diabetes tipo 1).</p>
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Tiroiditis de Hashimoto</h3>
+                        <p class="mb-2 text-sm md:text-base">Causa más común en áreas con yodo suficiente. Es un trastorno autoinmune donde el sistema inmunitario del propio cuerpo ataca por error a la glándula tiroides.</p>
+                        <div class="explanation-block">
+                            <p><strong>Autoinmune:</strong> Significa que el sistema de defensas del cuerpo (sistema inmunitario) se confunde y, en lugar de atacar solo a invasores externos (como virus o bacterias), ataca a sus propias células y tejidos. En Hashimoto, los anticuerpos (como anti-TPO y anti-Tg) atacan las células tiroideas, causando inflamación crónica (tiroiditis) y destrucción gradual de la glándula.</p>
+                            <p>Factores: Predisposición genética, infecciones virales (ej. Epstein-Barr), estrés crónico, exposición a toxinas ambientales, y en personas susceptibles, un exceso de yodo.</p>
+                        </div>
+                        <div class="mt-4 p-3 bg-amber-100 rounded-lg">
+                            <h5 class="font-semibold text-amber-700">Enfermedades Autoinmunes Asociadas a Hashimoto:</h5>
+                            <p class="text-sm text-amber-800 mb-2">Las personas con Hashimoto tienen un mayor riesgo de desarrollar otras enfermedades autoinmunes debido a una predisposición genética compartida y a mecanismos inmunes similares. Es importante estar atento a síntomas de estas condiciones:</p>
+                            <ul class="list-disc list-inside text-xs text-amber-700 space-y-1">
+                                <li><strong>Enfermedad Celíaca:</strong> Reacción inmune al gluten que daña el intestino delgado, causando malabsorción. Síntomas: diarrea, hinchazón, fatiga, anemia.</li>
+                                <li><strong>Diabetes Mellitus Tipo 1:</strong> El sistema inmune destruye las células beta del páncreas que producen insulina. Síntomas: sed excesiva, micción frecuente, hambre, pérdida de peso.</li>
+                                <li><strong>Artritis Reumatoide:</strong> Inflamación crónica de las articulaciones, causando dolor, hinchazón y rigidez.</li>
+                                <li><strong>Gastritis Atrófica Autoinmune (y Anemia Perniciosa):</strong> Ataque a las células del estómago que producen ácido y factor intrínseco (necesario para absorber B12). Causa deficiencia de B12, anemia.</li>
+                                <li><strong>Síndrome de Sjögren:</strong> Ataque a las glándulas que producen lágrimas y saliva. Síntomas: ojos y boca secos, fatiga, dolor articular.</li>
+                                <li><strong>Vitíligo:</strong> Pérdida de melanocitos (células productoras de pigmento), causando manchas blancas en la piel.</li>
+                                <li><strong>Enfermedad de Addison:</strong> Insuficiencia de las glándulas suprarrenales para producir cortisol y aldosterona. Síntomas: fatiga extrema, pérdida de peso, baja presión, oscurecimiento de la piel.</li>
+                                <li><strong>Lupus Eritematoso Sistémico (LES):</strong> Enfermedad inflamatoria crónica que puede afectar articulaciones, piel, riñones, sangre, cerebro.</li>
+                                <li><strong>Hepatitis Autoinmune:</strong> El sistema inmune ataca las células del hígado.</li>
+                                <li><strong>Esclerosis Múltiple (EM):</strong> El sistema inmune ataca la mielina (cubierta protectora de los nervios) en cerebro y médula espinal. La asociación con Hashimoto es más compleja y puede haber factores compartidos.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                  <div class="card">
-                    <h3 class="text-2xl font-semibold mb-3" style="color: #008080;">Proporción de Causas</h3>
-                     <div class="chart-container h-72 md:h-80 max-w-sm mx-auto">
-                        <canvas id="causasChart"></canvas>
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Proporción de Causas</h3>
+                        <div class="chart-container h-64 sm:h-72 md:h-80 max-w-sm mx-auto">
+                            <canvas id="causasChart"></canvas>
+                        </div>
+                        <p class="mt-2 text-xs text-center text-slate-500">Contribución ilustrativa de causas comunes.</p>
                     </div>
-                    <p class="mt-2 text-xs text-center text-slate-500">Representación ilustrativa de la contribución de las causas comunes.</p>
                 </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Deficiencias Nutricionales</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li><span class="font-semibold">Yodo:</span> Componente esencial de hormonas tiroideas.</li>
-                        <li><span class="font-semibold">Selenio:</span> Conversión T4 a T3, antioxidante.</li>
-                        <li><span class="font-semibold">Hierro:</span> Actividad de la enzima TPO.</li>
-                        <li><span class="font-semibold">Zinc:</span> Síntesis hormonal, función receptora.</li>
-                        <li><span class="font-semibold">Vitamina D:</span> Modulación inmune.</li>
-                        <li><span class="font-semibold">Vitamina B12:</span> Metabolismo, función nerviosa.</li>
-                    </ul>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Deficiencias Nutricionales</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><span class="font-semibold">Yodo:</span> Bloque de construcción esencial de T4/T3.</li>
+                            <li><span class="font-semibold">Selenio:</span> Necesario para las enzimas (desyodasas) que convierten T4 en la T3 activa. También es un potente antioxidante que protege la tiroides del daño durante la producción hormonal.</li>
+                            <li><span class="font-semibold">Hierro:</span> La enzima tiroperoxidasa (TPO), clave para fabricar hormonas tiroideas, necesita hierro para funcionar. Su deficiencia es causa común de fatiga.</li>
+                            <li><span class="font-semibold">Zinc:</span> Involucrado en la síntesis de hormonas tiroideas y en la función de los receptores de T3 en las células.</li>
+                            <li><span class="font-semibold">Vitamina D y B12:</span> Sus deficiencias son comunes y se han asociado con mayor riesgo de autoinmunidad tiroidea y con síntomas como fatiga y problemas neurológicos.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Factores Ambientales y EDCs</h3>
-                    <p>Disruptores Endocrinos Químicos (EDCs) como BPA, ftalatos, pesticidas, metales pesados, pueden interferir con la función tiroidea.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Factores Ambientales y EDCs</h3>
+                        <p>Sustancias químicas del entorno que pueden interferir con el sistema hormonal.</p>
+                        <div class="explanation-block">
+                             <p><strong>EDCs (Disruptores Endocrinos Químicos):</strong> Son compuestos como el BPA (Bisfenol A, en algunos plásticos y latas), ftalatos (en plásticos flexibles, cosméticos), ciertos pesticidas, metales pesados (mercurio, plomo, cadmio), y retardantes de llama. Pueden imitar o bloquear hormonas, o interferir con su producción, transporte o eliminación, afectando la función tiroidea.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Causas Iatrogénicas</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Cirugía de tiroides (tiroidectomía).</li>
-                        <li>Terapia con yodo radiactivo (I-131).</li>
-                        <li>Radioterapia externa en cuello/cabeza.</li>
-                        <li>Medicamentos (litio, amiodarona, etc.).</li>
-                    </ul>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Causas Iatrogénicas</h3>
+                        <p>Consecuencia de tratamientos médicos.</p>
+                        <div class="explanation-block">
+                            <p><strong>Iatrogénico:</strong> Significa "causado por un tratamiento o procedimiento médico". Incluye la cirugía de tiroides (tiroidectomía total o parcial), la terapia con yodo radiactivo (usada para tratar hipertiroidismo o cáncer de tiroides, destruye células tiroideas), la radioterapia en la zona del cuello/cabeza por otros cánceres, y ciertos medicamentos (ej. litio, amiodarona, algunos tratamientos para el cáncer).</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card mt-6">
-                <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Inflamación Crónica y Estrés Oxidativo</h3>
-                <p>Están íntimamente ligados a la patogénesis, especialmente en Hashimoto. El estrés oxidativo surge de un desequilibrio entre la producción de radicales libres y las defensas antioxidantes. La inflamación perpetúa el daño tisular.</p>
+                <div class="card text-sm md:text-base md:col-span-2 lg:col-span-3">
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Inflamación Crónica y Estrés Oxidativo</h3>
+                        <p>Son procesos centrales en el daño tiroideo, especialmente en la Tiroiditis de Hashimoto.</p>
+                        <div class="explanation-block">
+                            <p><strong>Estrés Oxidativo:</strong> Es como el "óxido" que daña las células. Ocurre cuando hay un desequilibrio entre los radicales libres (moléculas inestables y dañinas generadas por el metabolismo normal y factores externos) y las defensas antioxidantes del cuerpo. En el hipotiroidismo, la producción de hormonas genera radicales libres, y si los antioxidantes (como el selenio) son insuficientes, la tiroides sufre daño.</p>
+                            <p>La inflamación crónica (una respuesta inmune prolongada) y el estrés oxidativo se retroalimentan, creando un círculo vicioso que daña las células tiroideas y empeora la función de la glándula.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="bienestar" class="mb-16 scroll-mt-24">
-            <h2 class="section-title">Recuperación de Energía y Bienestar General</h2>
-            <p class="text-center text-slate-700 mb-8">Estrategias integrativas más allá de la levotiroxina para abordar síntomas persistentes como la fatiga.</p>
+            <h2 class="section-title">Recuperación y Bienestar: Más Allá de L-T4</h2>
+            <p class="text-center text-slate-700 mb-8 text-sm md:text-base">Estrategias integrativas para síntomas persistentes y optimización de la salud.</p>
             
             <div class="card mb-8">
-                <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #008080;">Pilares del Bienestar en el Hipotiroidismo</h3>
-                <div class="flex flex-col md:flex-row justify-around items-center p-4 space-y-4 md:space-y-0 md:space-x-4 rounded-lg border-2 border-dashed border-teal-500">
-                    <div class="text-center p-3">
-                        <span class="text-4xl">💊</span>
-                        <p class="mt-2 font-semibold">Optimizar T3</p>
-                        <p class="text-xs">Conversión T4 a T3.</p>
+                 <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center" style="color: #008080;">Pilares del Bienestar con Hipotiroidismo</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 p-4 rounded-lg border-2 border-dashed border-teal-500">
+                    <div class="text-center p-2">
+                        <span class="text-3xl md:text-4xl">💊</span>
+                        <p class="mt-1 font-semibold text-xs md:text-sm">Optimizar T3</p>
+                        <div class="explanation-block text-xs !p-1">La T4 (levotiroxina) es una prohormona; la T3 es la forma activa que usan las células. Optimizar esta conversión T4➝T3 es clave. Factores como estrés y deficiencias nutricionales pueden afectarla.</div>
                     </div>
-                    <div class="text-center p-3">
-                        <span class="text-4xl">🔋</span>
-                        <p class="mt-2 font-semibold">Salud Mitocondrial</p>
-                        <p class="text-xs">L-Carnitina, CoQ10.</p>
+                    <div class="text-center p-2">
+                        <span class="text-3xl md:text-4xl">🔋</span>
+                        <p class="mt-1 font-semibold text-xs md:text-sm">Salud Mitocondrial</p>
+                        <div class="explanation-block text-xs !p-1">
+                            <p><strong>L-Carnitina:</strong> Aminoácido que ayuda a transportar grasas a las mitocondrias para quemarlas y producir energía. Se encuentra en carnes rojas (cordero, ternera), pescado, pollo, lácteos; menos en espárragos, aguacate. Suplementos: L-carnitina L-tartrato, Acetil-L-carnitina (cruza barrera cerebral, útil para energía mental).</p>
+                            <p><strong>CoQ10 (Ubiquinona/Ubiquinol):</strong> Sustancia vital en la cadena de producción de energía (ATP) en las mitocondrias y potente antioxidante. Se halla en carnes (corazón, hígado), pescados grasos (salmón, sardinas), aceites (soja), frutos secos (cacahuetes), espinacas. Suplementos: Ubiquinol es la forma activa, mejor absorbida, pero más cara; Ubiquinona es más común.</p>
+                        </div>
                     </div>
-                    <div class="text-center p-3">
-                        <span class="text-4xl">🧘</span>
-                        <p class="mt-2 font-semibold">Manejo del Estrés</p>
-                        <p class="text-xs">Adaptógenos (cautela), relajación.</p>
+                    <div class="text-center p-2">
+                        <span class="text-3xl md:text-4xl">🧘</span>
+                        <p class="mt-1 font-semibold text-xs md:text-sm">Manejo Estrés</p>
+                        <div class="explanation-block text-xs !p-1">El estrés crónico (cortisol alto) puede inhibir la conversión T4➝T3 y empeorar síntomas. Técnicas: meditación, yoga, respiración profunda. Adaptógenos como Ashwagandha con extrema cautela en Hashimoto (podría estimular inmunidad), siempre bajo supervisión médica.</div>
                     </div>
-                     <div class="text-center p-3">
-                        <span class="text-4xl">😴</span>
-                        <p class="mt-2 font-semibold">Sueño Reparador</p>
-                        <p class="text-xs">Higiene, Magnesio.</p>
+                     <div class="text-center p-2">
+                        <span class="text-3xl md:text-4xl">😴</span>
+                        <p class="mt-1 font-semibold text-xs md:text-sm">Sueño Reparador</p>
+                        <div class="explanation-block text-xs !p-1">Esencial para reparación y regulación hormonal. Higiene del sueño (horarios, ambiente oscuro). Magnesio puede ayudar. Investigar apnea del sueño si hay ronquidos fuertes y fatiga diurna persistente.</div>
                     </div>
-                    <div class="text-center p-3">
-                        <span class="text-4xl">🏃‍♀️</span>
-                        <p class="mt-2 font-semibold">Ejercicio Adecuado</p>
-                        <p class="text-xs">Fuerza, HIIT (moderado).</p>
+                    <div class="text-center p-2">
+                        <span class="text-3xl md:text-4xl">🏃‍♀️</span>
+                        <p class="mt-1 font-semibold text-xs md:text-sm">Ejercicio Adecuado</p>
+                        <div class="explanation-block text-xs !p-1">Combinar ejercicios de fuerza (para mantener músculo y metabolismo) con cardio moderado o HIIT (intervalos de alta intensidad) corto y adaptado. Evitar sobreentrenamiento, que puede ser contraproducente.</div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
                 <div class="card">
-                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Salud Gastrointestinal: Eje Intestino-Tiroides</h3>
-                    <p class="mb-2">Fundamental, especialmente en Hashimoto. Una dieta antiinflamatoria es clave.</p>
-                    <div class="mb-3 p-3 bg-emerald-50 rounded-lg">
-                        <h5 class="font-semibold text-emerald-700">Alimentos Recomendados:</h5>
-                        <ul class="list-disc list-inside text-sm text-emerald-600">
-                            <li>Pescados grasos (salmón), nueces de Brasil (selenio).</li>
-                            <li>Verduras de hoja verde, bayas (antioxidantes).</li>
-                            <li>Aceite de oliva virgen extra, aguacate.</li>
-                            <li>Alimentos fermentados (si se toleran).</li>
-                        </ul>
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Salud Gastrointestinal y Dieta Antiinflamatoria</h3>
+                        <p class="mb-2 text-sm md:text-base">El intestino es clave ("segundo cerebro") y su salud impacta directamente la tiroides y la inmunidad, especialmente en Hashimoto.</p>
+                        <div class="mb-3 p-3 bg-emerald-50 rounded-lg text-xs md:text-sm">
+                            <h5 class="font-semibold text-emerald-700">Alimentos Recomendados (Priorizar Orgánicos y de Pastoreo si es posible):</h5>
+                            <ul class="list-disc list-inside text-emerald-600">
+                                <li><strong>Pescados grasos (Omega-3) y Mariscos:</strong> Salmón salvaje, sardinas, caballa, arenque, trucha arcoíris, anchoas, mejillones, ostras (ricas en zinc).</li>
+                                <li><strong>Nueces de Brasil (Selenio):</strong> 1-3 al día son suficientes (no exceder por toxicidad de selenio).</li>
+                                <li><strong>Verduras de hoja verde oscuro:</strong> Espinacas, kale (col rizada), acelgas, rúcula, berros, hojas de mostaza, hojas de remolacha, lechuga romana.</li>
+                                <li><strong>Frutas coloridas (bajas en azúcar y ricas en antioxidantes):</strong> Arándanos, fresas, frambuesas, moras, cerezas, granada, kiwi, limones, limas.</li>
+                                <li><strong>Grasas saludables:</strong> Aceite de oliva virgen extra (AOVE), aguacate y su aceite, aceitunas, aceite de coco virgen (con moderación), ghee (mantequilla clarificada, si se toleran lácteos).</li>
+                                <li><strong>Otras verduras variadas (muchos colores):</strong> Brócoli (cocido), coliflor (cocida), zanahorias, remolacha, calabacín, pepino, apio, pimientos (si se toleran solanáceas), espárragos, champiñones y otras setas.</li>
+                                <li><strong>Hierbas y especias antiinflamatorias:</strong> Cúrcuma (con pimienta negra para absorción), jengibre, romero, orégano, tomillo, canela, ajo, cebolla.</li>
+                                <li><strong>Alimentos fermentados (Probióticos, si se toleran y no hay SIBO activo):</strong> Kéfir de agua o de coco, chucrut (col fermentada cruda), kimchi, yogur natural de coco sin azúcar, kombucha (baja en azúcar).</li>
+                                 <li><strong>Caldo de huesos:</strong> Rico en colágeno y aminoácidos que pueden ayudar a la salud intestinal.</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded-lg text-xs md:text-sm">
+                            <h5 class="font-semibold text-red-700">A Considerar/Moderar o Eliminar (Según Sensibilidad Individual):</h5>
+                            <ul class="list-disc list-inside text-red-600">
+                                <li><strong>Goitrógenos crudos:</strong> Sustancias en vegetales crucíferos (brócoli, coliflor, repollo, kale, coles de Bruselas, nabos, rábanos) y otros (soja, mijo, espinacas, fresas, melocotones en grandes cantidades). Pueden interferir con la captación de yodo por la tiroides si se consumen crudos y en exceso, especialmente si hay deficiencia de yodo. La cocción (vapor, salteado) reduce significativamente su efecto goitrogénico. No es necesario eliminarlos por completo si se cocinan y la ingesta de yodo es adecuada.</li>
+                                <li><strong>Soja y derivados (tofu, tempeh, leche de soja, edamame):</strong> Contiene isoflavonas que pueden inhibir la enzima TPO y afectar la absorción de la levotiroxina. Si se consume, separar varias horas de la medicación tiroidea. Preferir soja fermentada (tempeh, miso, natto) en moderación.</li>
+                                <li><strong>Gluten (Trigo, cebada, centeno, espelta, kamut y derivados):</strong> Proteína inflamatoria para muchas personas, especialmente con autoinmunidad. Considerar eliminación estricta si hay enfermedad celíaca (ver abajo) o sensibilidad al gluten no celíaca.</li>
+                                <li><strong>Lácteos (leche, queso, yogur convencional, helados):</strong> La caseína y la lactosa pueden ser problemáticas. Considerar eliminación si hay intolerancia a la lactosa o sensibilidad a la caseína. Optar por lácteos de cabra/oveja fermentados (si se toleran) o alternativas vegetales sin azúcar.</li>
+                                <li><strong>Azúcares refinados y Jarabe de Maíz de Alta Fructosa:</strong> Presentes en dulces, bollería, refrescos, salsas procesadas. Promueven inflamación y desequilibrios de azúcar en sangre.</li>
+                                <li><strong>Aceites vegetales procesados y grasas trans:</strong> Aceites de soja, maíz, girasol, cártamo, canola (a menos que sean prensados en frío y orgánicos, usar con moderación). Margarinas, alimentos fritos comerciales. Son proinflamatorios.</li>
+                                <li><strong>Alimentos ultraprocesados y aditivos:</strong> Comidas preparadas, snacks empaquetados, colorantes artificiales, conservantes, glutamato monosódico (GMS).</li>
+                                <li><strong>Alcohol y exceso de cafeína:</strong> Pueden afectar el hígado, el sistema nervioso y el equilibrio hormonal.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="p-3 bg-red-50 rounded-lg">
-                        <h5 class="font-semibold text-red-700">A Considerar/Moderar:</h5>
-                        <ul class="list-disc list-inside text-sm text-red-600">
-                            <li>Goitrógenos (crucíferas crudas en exceso).</li>
-                            <li>Soja (puede interferir con L-T4).</li>
-                            <li>Gluten y lácteos (si hay sensibilidad/celiaquía).</li>
-                            <li>Alimentos procesados, azúcares añadidos.</li>
-                        </ul>
-                    </div>
-                    <p class="mt-3 text-sm">Abordar disbiosis, SIBO e hipoclorhidria (baja acidez estomacal) puede ser necesario con probióticos, enzimas digestivas o betaína HCl bajo supervisión.</p>
                 </div>
 
                 <div class="card">
-                    <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Micronutrientes Clave y su Reposición</h3>
-                    <p class="mb-3">Corregir deficiencias es vital. La malabsorción puede ser un problema.</p>
-                    <div class="space-y-3">
-                        <div class="p-3 border border-yellow-300 rounded-lg bg-yellow-50">
-                            <h5 class="font-semibold" style="color: #FFD700;">Hierro</h5>
-                            <p class="text-sm text-yellow-700">Combate anemia y fatiga. Esencial para la enzima TPO.</p>
+                    <div class="card-content">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Micronutrientes Esenciales y Suplementación</h3>
+                        <p class="mb-3 text-sm md:text-base">Corregir deficiencias es vital. La malabsorción (por hipoclorhidria o problemas intestinales) puede ser un factor. La suplementación debe ser guiada por análisis y un profesional.</p>
+                         <div class="chart-container h-60 sm:h-64 md:h-72 max-w-md mx-auto">
+                            <canvas id="micronutrientesChart"></canvas>
                         </div>
-                        <div class="p-3 border border-pink-300 rounded-lg bg-pink-50">
-                            <h5 class="font-semibold" style="color: #FF69B4;">Vitamina B12</h5>
-                            <p class="text-sm text-pink-700">Función neurológica, energía. Deficiencia común en gastritis autoinmune.</p>
-                        </div>
-                        <div class="p-3 border border-blue-300 rounded-lg bg-blue-50">
-                            <h5 class="font-semibold" style="color: #ADD8E6;">Vitamina D</h5>
-                            <p class="text-sm text-blue-700">Modulación inmune. Deficiencia común en Hashimoto.</p>
-                        </div>
-                         <div class="p-3 border border-teal-300 rounded-lg bg-teal-50">
-                            <h5 class="font-semibold" style="color: #008080;">Selenio y Zinc</h5>
-                            <p class="text-sm text-teal-700">Cruciales para conversión T4-T3 y protección antioxidante.</p>
+                        <p class="mt-2 text-xs text-center text-slate-500">Importancia relativa de micronutrientes clave.</p>
+                        <div class="explanation-block text-xs !p-2 mt-2">
+                            <p><strong>Hierro:</strong> Ferritina ideal >70 ng/mL. Suplementar si hay deficiencia. Formas: bisglicinato de hierro (mejor tolerado). Tomar con Vit C, lejos de L-T4 y calcio.</p>
+                            <p><strong>Vitamina B12:</strong> Niveles óptimos >500 pg/mL. Formas: metilcobalamina (activa), hidroxocobalamina. Sublingual o inyectable si hay malabsorción.</p>
+                            <p><strong>Vitamina D3:</strong> Niveles óptimos 50-80 ng/mL. Dosis según deficiencia. Tomar con K2 (MK-7) para correcta utilización del calcio y con una comida grasa.</p>
+                            <p><strong>Selenio:</strong> 200 mcg/día (selenometionina) puede ayudar a reducir anticuerpos TPO en Hashimoto. No exceder, es tóxico en altas dosis.</p>
+                            <p><strong>Zinc:</strong> 15-30 mg/día (picolinato, citrato). Balancear con cobre si se toma a largo plazo (ej. 15mg zinc : 1mg cobre).</p>
+                            <p><strong>Magnesio:</strong> 200-400 mg elemental/día (glicinato, malato, citrato, treonato). Puede ayudar con sueño, calambres, estreñimiento. Separar de L-T4.</p>
+                            <p><strong>Omega-3 (EPA/DHA):</strong> 1-3 gramos combinados de EPA+DHA de aceite de pescado de alta calidad y purificado. Antiinflamatorio.</p>
                         </div>
                     </div>
-                     <div class="mt-4 chart-container h-64 md:h-72 max-w-md mx-auto">
-                        <canvas id="micronutrientesChart"></canvas>
-                    </div>
-                    <p class="mt-2 text-xs text-center text-slate-500">Importancia relativa de algunos micronutrientes.</p>
                 </div>
-            </div>
-
-            <div class="card mt-8 md:col-span-2">
-                <h3 class="text-2xl font-semibold mb-4 text-center" style="color: #FF7F50;">✨ Consejos de Bienestar Potenciados por IA</h3>
-                <p class="text-center text-slate-600 mb-4">Selecciona tus principales preocupaciones para recibir sugerencias generales de dieta y estilo de vida. Esta herramienta es informativa y no reemplaza el consejo médico.</p>
                 
-                <div class="mb-4 space-y-2">
-                    <label class="block text-slate-700 font-semibold mb-1">Mis principales preocupaciones son:</label>
-                    <div>
-                        <input type="checkbox" id="concernFatiga" name="concerns" value="Fatiga Persistente" class="mr-2">
-                        <label for="concernFatiga">Fatiga Persistente</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="concernDigestivos" name="concerns" value="Problemas Digestivos" class="mr-2">
-                        <label for="concernDigestivos">Problemas Digestivos (hinchazón, estreñimiento)</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="concernNiebla" name="concerns" value="Niebla Mental" class="mr-2">
-                        <label for="concernNiebla">Niebla Mental / Dificultad de Concentración</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="concernEstres" name="concerns" value="Manejo del Estrés y Ánimo" class="mr-2">
-                        <label for="concernEstres">Manejo del Estrés y Ánimo Bajo</label>
-                    </div>
-                     <div>
-                        <input type="checkbox" id="concernPielCabello" name="concerns" value="Piel y Cabello Secos" class="mr-2">
-                        <label for="concernPielCabello">Piel y Cabello Secos</label>
+                <div class="card md:col-span-2">
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Entendiendo la Enfermedad Celíaca y el SIBO</h3>
+                        <div class="explanation-block">
+                            <h5>Enfermedad Celíaca (EC)</h5>
+                            <p><strong>¿Qué es?</strong> Es una enfermedad autoinmune crónica que afecta principalmente el intestino delgado. No es una simple alergia o intolerancia al gluten, sino una reacción del sistema inmunitario.</p>
+                            <p><strong>Desencadenante:</strong> La ingesta de gluten, una proteína presente en el trigo, la cebada, el centeno y sus derivados (espelta, kamut, triticale).</p>
+                            <p><strong>Mecanismo:</strong> En personas con predisposición genética, el gluten desencadena una respuesta inmune que daña las vellosidades intestinales (pequeñas proyecciones en forma de dedo que recubren el intestino delgado y son cruciales para la absorción de nutrientes). Este daño lleva a la malabsorción de vitaminas, minerales y otros nutrientes.</p>
+                            <p><strong>Síntomas:</strong> Pueden ser muy variados. Digestivos: diarrea crónica o estreñimiento, dolor abdominal, hinchazón, gases, pérdida de peso. Extraintestinales: fatiga, anemia por deficiencia de hierro, osteoporosis, dermatitis herpetiforme (erupción cutánea), dolores articulares, problemas neurológicos (niebla mental, neuropatía), infertilidad.</p>
+                            <p><strong>Relación con Hashimoto:</strong> Las personas con Tiroiditis de Hashimoto tienen un riesgo significativamente mayor de desarrollar enfermedad celíaca (y viceversa), ya que ambas son enfermedades autoinmunes y comparten algunos factores genéticos de susceptibilidad.</p>
+                            <p><strong>Diagnóstico:</strong> Se realiza mediante análisis de sangre para detectar anticuerpos específicos (como anti-transglutaminasa tisular IgA (tTG-IgA) y anti-endomisio IgA (EMA)). Si los anticuerpos son positivos, se suele confirmar con una biopsia del intestino delgado obtenida por endoscopia.</p>
+                            <p><strong>Tratamiento:</strong> Una dieta estricta y de por vida sin gluten (DSG) es el único tratamiento actual. Esto implica evitar todos los alimentos y productos que contengan trigo, cebada, centeno y sus derivados. La contaminación cruzada también es una preocupación importante.</p>
+                        </div>
+                        <div class="explanation-block mt-4">
+                            <h5>SIBO (Sobrecrecimiento Bacteriano en el Intestino Delgado)</h5>
+                            <p><strong>¿Qué es?</strong> Es una condición caracterizada por la presencia de una cantidad excesiva y/o tipos anormales de bacterias en el intestino delgado, un área del tracto digestivo que normalmente debería tener una población bacteriana relativamente baja en comparación con el colon (intestino grueso).</p>
+                            <p><strong>Causas/Factores de Riesgo en Hipotiroidismo:</strong>
+                                <ul>
+                                    <li><strong>Disminución de la motilidad intestinal:</strong> El hipotiroidismo ralentiza el tránsito intestinal, incluyendo el Complejo Motor Migratorio (CMM), que son las "ondas de limpieza" del intestino delgado. Esto permite que las bacterias se acumulen.</li>
+                                    <li><strong>Hipoclorhidria (baja acidez estomacal):</strong> El ácido del estómago es una barrera natural contra las bacterias. Si hay poca acidez (común en hipotiroidismo o por uso de antiácidos), más bacterias pueden llegar al intestino delgado.</li>
+                                    <li>Otros: Uso de inhibidores de la bomba de protones (IBP), cirugías intestinales previas, diabetes, enfermedad de Crohn, diverticulosis.</li>
+                                </ul>
+                            </p>
+                            <p><strong>Síntomas Comunes:</strong> Hinchazón y distensión abdominal (a menudo empeora a lo largo del día o después de comer ciertos alimentos, especialmente ricos en carbohidratos fermentables), exceso de gases (eructos, flatulencia), dolor o malestar abdominal, diarrea crónica, estreñimiento crónico (especialmente si predominan bacterias productoras de metano), o un patrón mixto. También puede causar malabsorción de nutrientes (grasas, vitaminas liposolubles, B12, hierro), lo que lleva a deficiencias, pérdida de peso involuntaria, fatiga y niebla mental.</p>
+                            <p><strong>¿Cómo saber si se tiene (Diagnóstico)?</strong>
+                                <ul>
+                                    <li><strong>Prueba de aliento con lactulosa o glucosa:</strong> Es el método no invasivo más utilizado. El paciente bebe una solución de azúcar (lactulosa o glucosa) y luego se recolectan muestras de aliento a intervalos regulares durante 2-3 horas. Se miden los niveles de hidrógeno (H2) y metano (CH4) en el aliento. Un aumento temprano y significativo de estos gases indica fermentación bacteriana en el intestino delgado.</li>
+                                    <li><strong>Aspirado y cultivo yeyunal:</strong> Se considera el "estándar de oro" pero es invasivo (requiere una endoscopia para tomar una muestra de fluido del yeyuno, una parte del intestino delgado, que luego se cultiva). Se realiza con menos frecuencia.</li>
+                                    <li><strong>Sospecha clínica:</strong> Un profesional de la salud puede sospechar SIBO basándose en un conjunto de síntomas persistentes y factores de riesgo, incluso si las pruebas no son concluyentes.</li>
+                                </ul>
+                            </p>
+                            <p><strong>¿Cómo mejorar? (Tratamiento bajo supervisión profesional):</strong> El tratamiento del SIBO es un proceso multifásico:
+                                <ol class="list-decimal ml-4 mt-2">
+                                    <li><strong>Fase de Erradicación:</strong> Reducir la carga bacteriana.
+                                        <ul>
+                                            <li><u>Antibióticos específicos:</u> El más común es la Rifaximina (Xifaxan), un antibiótico no absorbible que actúa localmente en el intestino. Para SIBO productor de metano (SIBO-M, a menudo asociado con estreñimiento), se puede combinar Rifaximina con Neomicina o Metronidazol.</li>
+                                            <li><u>Antimicrobianos herbales:</u> Alternativa o complemento, pueden incluir berberina, aceite de orégano emulsionado, extracto de semilla de pomelo, alicina (del ajo), neem. Suelen usarse en ciclos.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Fase de Dieta y Soporte:</strong> Durante y después de la erradicación.
+                                        <ul>
+                                            <li><u>Dieta baja en FODMAPs:</u> Temporalmente (4-8 semanas) para "matar de hambre" a las bacterias restantes y aliviar síntomas. Los FODMAPs son carbohidratos fermentables. Se reintroducen gradualmente para identificar tolerancias. Otras dietas como la Dieta Específica de Carbohidratos (SCD) o la dieta elemental pueden usarse en casos más complejos.</li>
+                                            <li><u>Soporte digestivo:</u> Enzimas digestivas para ayudar a descomponer los alimentos. Betaína HCl con pepsina si hay hipoclorhidria (tomar con comidas proteicas).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Fase de Prevención de Recurrencia (¡Crucial!):</strong>
+                                        <ul>
+                                            <li><u>Procinéticos:</u> Medicamentos o suplementos que estimulan el Complejo Motor Migratorio (CMM) para barrer las bacterias del intestino delgado entre comidas. Se toman por la noche con el estómago vacío. Ejemplos: dosis bajas de eritromicina o naltrexona (LDN) (receta); herbales como jengibre, Iberogast, extracto de hoja de alcachofa.</li>
+                                            <li><u>Abordar la causa subyacente:</u> Si el SIBO es secundario a hipotiroidismo mal controlado, hipoclorhidria, adherencias postquirúrgicas, etc., estas causas deben ser tratadas para evitar que el SIBO regrese.</li>
+                                            <li><u>Manejo del estrés y espaciamiento de comidas:</u> El estrés afecta la motilidad. Dejar al menos 4-5 horas entre comidas (sin picar) permite que el CMM funcione.</li>
+                                            <li><u>Reparación de la barrera intestinal:</u> Suplementos como L-glutamina, zinc-carnosina, calostro, probióticos formadores de esporas (con cautela, algunos probióticos pueden empeorar el SIBO inicialmente).</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <button id="getGeminiAdviceBtn" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
-                    ✨ Obtener Consejos con IA
-                </button>
+                <div class="card md:col-span-2">
+                    <div class="card-content">
+                        <h3 class="text-xl md:text-2xl font-semibold mb-3" style="color: #008080;">Ejemplo de Plan de Alimentación de Soporte Tiroideo</h3>
+                        <p class="text-xs md:text-sm mb-3 italic">Este es un ejemplo general y debe adaptarse a las necesidades, tolerancias y preferencias individuales, idealmente con la guía de un nutricionista o profesional de la salud. Se enfoca en alimentos integrales, antiinflamatorios y densos en nutrientes.</p>
+                        
+                        <div class="explanation-block">
+                            <h5>Desayuno (Elegir una opción)</h5>
+                            <ul>
+                                <li><strong>Batido Verde Energizante:</strong> 1 taza de espinacas o kale, 1/2 aguacate, 1/2 taza de bayas mixtas (arándanos, fresas), 1 cda. semillas de chía o lino molidas, 1 porción de proteína en polvo de buena calidad (colágeno hidrolizado o proteína vegetal sin soja/guisante si hay sensibilidad), 1 taza de leche vegetal sin azúcar (almendras, coco). Opcional: 1-2 nueces de Brasil.</li>
+                                <li><strong>Huevos Revueltos o Pochados (si se toleran):</strong> 2 huevos de pastoreo con 1-2 tazas de verduras salteadas (champiñones, pimientos, cebolla, espinacas, calabacín) en aceite de oliva o coco. Acompañar con 1/4 aguacate y 1/2 taza de fruta (ej. papaya).</li>
+                                <li><strong>Pudding de Chía Nocturno:</strong> 3 cdas. semillas de chía + 1 taza leche de coco/almendras + 1/2 cdta. vainilla + canela. Reposar. Añadir: bayas, 1-2 nueces de Brasil picadas, coco rallado sin azúcar.</li>
+                                <li><strong>Salmón Ahumado (salvaje) con Aguacate:</strong> 2-3 oz de salmón ahumado sobre rodajas de pepino o boniato tostado fino, con 1/4 aguacate y un chorrito de limón.</li>
+                            </ul>
 
-                <div id="geminiLoader" class="loader hidden my-4"></div>
-                <div id="geminiResponse" class="gemini-response-container hidden">
-                    <p>Aquí se mostrarán los consejos generados por la IA...</p>
+                            <h5>Colación Matutina (Elegir una opción, si es necesaria)</h5>
+                             <ul>
+                                <li>Un puñado (aprox. 1/4 taza) de nueces mixtas crudas (almendras, nueces pecanas, macadamias) + 1-2 nueces de Brasil.</li>
+                                <li>Una pieza de fruta baja en azúcar (manzana verde, pera, bayas) con 1 cda. de mantequilla de almendras o coco.</li>
+                                <li>Palitos de apio y pepino con 2 cdas. de guacamole o hummus de calabacín.</li>
+                                <li>Un huevo duro de pastoreo.</li>
+                            </ul>
+
+                            <h5>Comida (Elegir una opción)</h5>
+                            <ul>
+                                <li><strong>Ensalada Grande con Proteína Magra:</strong> Base de hojas verdes mixtas (rúcula, lechuga romana, espinacas), 4-5 oz de salmón a la plancha, pollo de pastoreo a la parrilla, o sardinas en aceite de oliva. Añadir: pepino, tomate cherry (si se tolera), zanahoria rallada, remolacha cocida, 1/2 aguacate, aceitunas Kalamata. Aderezo: AOVE, vinagre de manzana, mostaza Dijon, hierbas frescas.</li>
+                                <li><strong>Sopa de Verduras Abundante con Proteína:</strong> Caldo de huesos casero o de buena calidad, 4-5 oz de pollo desmenuzado o trozos de pescado blanco, abundantes verduras no almidonadas (apio, zanahoria, calabacín, puerro, judías verdes, brócoli, coliflor). Sazonar con cúrcuma y jengibre.</li>
+                                <li><strong>Wraps de Lechuga con Carne Molida de Pastoreo:</strong> 4-5 oz de carne molida de ternera de pastoreo o pavo salteada con especias (comino, pimentón, orégano), cebolla, pimiento, champiñones. Servir dentro de hojas grandes de lechuga romana o iceberg, con salsa de aguacate o tahini.</li>
+                                <li><strong>Restos de la cena anterior</strong> (una forma práctica de planificar).</li>
+                            </ul>
+
+                            <h5>Colación Vespertina (Elegir una opción, si es necesaria)</h5>
+                            <ul>
+                                <li>Un pequeño tazón (1/2 taza) de bayas mixtas con unas pocas semillas de calabaza.</li>
+                                <li>Un té de hierbas (jengibre, manzanilla, menta) con 1-2 cuadritos de chocolate negro (>80% cacao, sin lácteos ni soja).</li>
+                                <li>1/2 aguacate con sal marina y limón.</li>
+                                <li>Un puñado de aceitunas.</li>
+                            </ul>
+
+                            <h5>Cena (Elegir una opción)</h5>
+                            <ul>
+                                <li><strong>Pescado Blanco al Horno con Espárragos y "Arroz" de Coliflor:</strong> Filete de merluza, bacalao o lenguado (4-6 oz) al horno con limón, ajo y hierbas (eneldo, perejil). Acompañar de un manojo de espárragos al vapor o a la plancha y "arroz" de coliflor salteado con AOVE y cúrcuma.</li>
+                                <li><strong>Pollo de Pastoreo Asado con Ensalada de Hojas Verdes y Boniato:</strong> 1/4 de pollo asado (sin piel si se prefiere) con una ensalada grande de hojas verdes variadas y una porción pequeña (1/2 taza cocida) de boniato asado o al vapor.</li>
+                                <li><strong>Salteado de Gambas o Tofu Orgánico (si se tolera) con Brócoli y Setas Shiitake:</strong> 4-6 oz de gambas o tofu firme en cubos salteados con brócoli al vapor, setas shiitake, pimiento rojo, jengibre fresco rallado, ajo y salsa de coco aminos o tamari sin gluten. Servir sobre fideos de calabacín o una pequeña porción de quinoa.</li>
+                                <li><strong>Curry de Lentejas Rojas (si se toleran legumbres) con Espinacas y Leche de Coco:</strong> Lentejas rojas cocidas en un curry suave con leche de coco entera, espinacas frescas, cúrcuma, comino, cilantro. Servir con una guarnición de pepino rallado con menta.</li>
+                            </ul>
+                            
+                            <h5>Frutas y Verduras Recomendadas (Lista General Ampliada):</h5>
+                            <ul>
+                                <li><strong>Verduras (Priorizar variedad y colores, orgánicas si es posible):</strong>
+                                    <u>Hoja Verde:</u> Espinacas, kale (col rizada), acelgas, rúcula, lechuga romana, mantequilla, iceberg, hojas de mostaza, berros, hojas de remolacha, bok choy.
+                                    <u>Crucíferas (cocinadas):</u> Brócoli, coliflor, coles de Bruselas, repollo, col lombarda.
+                                    <u>Otras:</u> Espárragos, judías verdes, pepino, apio, calabacín, pimientos (todos los colores, si se toleran solanáceas), champiñones, setas (shiitake, maitake, ostra), cebolla (roja, blanca, amarilla), ajo, puerro, chalotas, zanahorias, remolacha, chirivía, nabo, rábano, alcachofas, hinojo, guisantes tirabeques.
+                                </li>
+                                <li><strong>Frutas (Priorizar bajo índice glucémico, orgánicas si es posible):</strong>
+                                     <u>Bayas:</u> Arándanos, fresas, frambuesas, moras, grosellas, bayas de saúco.
+                                     <u>Otras:</u> Manzanas (verdes preferiblemente), peras, cerezas, kiwi, ciruelas, melocotones, nectarinas, albaricoques, limones, limas, pomelo/toronja, granada. Moderar frutas con más azúcar como plátano (preferir verde), mango, uvas, higos, piña, papaya y frutas deshidratadas (dátiles, pasas, orejones).
+                                </li>
+                            </ul>
+                             <p class="mt-3 text-xs"><em>Beber abundante agua filtrada a lo largo del día (al menos 2 litros). Ajustar porciones según necesidades calóricas individuales, nivel de actividad y objetivos. Evitar ayunos prolongados si no son supervisados por un profesional, ya que pueden estresar la tiroides. Considerar rotar alimentos para asegurar variedad de nutrientes y minimizar el desarrollo de sensibilidades. Escuchar al cuerpo y ajustar según tolerancia.</em></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="card mt-8 md:col-span-2">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center" style="color: #FF7F50;">✨ Consejos de Bienestar Potenciados por IA</h3>
+                    <p class="text-center text-slate-600 mb-4 text-sm md:text-base">Selecciona tus principales preocupaciones para recibir sugerencias generales de dieta y estilo de vida. Esta herramienta es informativa y no reemplaza el consejo médico.</p>
+                    
+                    <div class="mb-4 space-y-2 text-sm md:text-base">
+                        <label class="block text-slate-700 font-semibold mb-1">Mis principales preocupaciones son:</label>
+                        <div>
+                            <input type="checkbox" id="concernFatiga" name="concerns" value="Fatiga Persistente" class="mr-2">
+                            <label for="concernFatiga">Fatiga Persistente</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="concernDigestivos" name="concerns" value="Problemas Digestivos" class="mr-2">
+                            <label for="concernDigestivos">Problemas Digestivos (hinchazón, estreñimiento)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="concernNiebla" name="concerns" value="Niebla Mental" class="mr-2">
+                            <label for="concernNiebla">Niebla Mental / Dificultad de Concentración</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="concernEstres" name="concerns" value="Manejo del Estrés y Ánimo" class="mr-2">
+                            <label for="concernEstres">Manejo del Estrés y Ánimo Bajo</label>
+                        </div>
+                         <div>
+                            <input type="checkbox" id="concernPielCabello" name="concerns" value="Piel y Cabello Secos" class="mr-2">
+                            <label for="concernPielCabello">Piel y Cabello Secos</label>
+                        </div>
+                    </div>
+
+                    <button id="getGeminiAdviceBtn" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                        ✨ Obtener Consejos con IA
+                    </button>
+
+                    <div id="geminiLoader" class="loader hidden my-4"></div>
+                    <div id="geminiResponse" class="gemini-response-container hidden">
+                        <p>Aquí se mostrarán los consejos generados por la IA...</p>
+                    </div>
+                </div>
             </section>
 
         <section id="sintomas-especificos" class="mb-16 scroll-mt-24">
             <h2 class="section-title">Conexión de Síntomas Específicos</h2>
-            <p class="text-center text-slate-700 mb-8">Análisis de cómo ciertos síntomas comunes se relacionan con el hipotiroidismo.</p>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤢</span>Reflujo Gástrico (ERGE)</h4>
-                    <p class="text-sm">Frecuente. Mecanismos: enlentecimiento vaciamiento gástrico, hipoclorhidria, SIBO, gastritis autoinmune. Abordaje: optimizar T4/T3, tratar causas subyacentes (hipoclorhidria, SIBO), dieta.</p>
+            <p class="text-center text-slate-700 mb-8 text-sm md:text-base">Análisis detallado de síntomas comunes y su relación con el hipotiroidismo.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤢</span>Reflujo Gástrico (ERGE)</h4>
+                        <p>Frecuente. Mecanismos: motilidad gástrica lenta, posible hipoclorhidria (baja acidez que afecta la digestión y el cierre del esfínter esofágico), SIBO, y gastritis autoinmune (común en Hashimoto).</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3, tratar hipoclorhidria (ej. betaína HCl bajo supervisión), SIBO, dieta antiinflamatoria.</div>
+                    </div>
                 </div>
-                 <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦵</span>Dolor de Piernas/Calambres</h4>
-                    <p class="text-sm">Común. Mecanismos: miopatía hipotiroidea, acumulación mucopolisacáridos, deficiencias (Mg, Vit D), neuropatía. Abordaje: optimizar T4/T3, suplementar deficiencias, ejercicio suave.</p>
+                 <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦵</span>Dolor Piernas/Calambres</h4>
+                        <p>Común. Mecanismos: miopatía hipotiroidea (debilidad y dolor muscular), acumulación de mucopolisacáridos en músculos, deficiencias (Magnesio, Vitamina D, Potasio), neuropatía periférica.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3, corregir deficiencias, ejercicio suave y estiramientos, hidratación.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🖐️</span>Problemas Tendinosos (STC)</h4>
-                    <p class="text-sm">Frecuente (Síndrome Túnel Carpiano). Mecanismo: acumulación de mucopolisacáridos y líquido en tejido conectivo, compresión nerviosa. Abordaje: optimizar T4/T3, fisioterapia, férulas.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🖐️</span>Problemas Tendinosos (STC)</h4>
+                        <p>Síndrome del Túnel Carpiano (STC) es frecuente. Mecanismo: acumulación de mucopolisacáridos (sustancias gelatinosas) y líquido en el tejido conectivo de la muñeca, comprimiendo el nervio mediano.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3 (puede reducir la acumulación), fisioterapia, férulas nocturnas, manejo de inflamación.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤯</span>Niebla Cerebral y Mala Memoria</h4>
-                    <p class="text-sm">Muy común. Mecanismos: ↓ metabolismo cerebral, alteración neurotransmisores, neuroinflamación (Hashimoto), deficiencias (B12, hierro). Abordaje: optimizar T4/T3 (considerar T3), corregir deficiencias, dieta, sueño, estrés.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🤯</span>Niebla Cerebral y Mala Memoria</h4>
+                        <p>Muy común. Mecanismos: reducción del metabolismo cerebral, alteración de neurotransmisores (serotonina, dopamina), posible neuroinflamación (especialmente en Hashimoto por anticuerpos o citoquinas), deficiencias (B12, hierro, Vit D), mala calidad del sueño.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3 (a veces se considera T3 adicional), corregir deficiencias, dieta antiinflamatoria, mejorar sueño, manejo del estrés.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦴</span>Dolor Articular/Artralgia</h4>
-                    <p class="text-sm">Común. Mecanismos: inflamación sinovial, acumulación mucopolisacáridos, coexistencia con Artritis Reumatoide (en Hashimoto). Abordaje: optimizar T4/T3, AINEs, dieta antiinflamatoria, investigar AR.</p>
+                 <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🦴</span>Dolor Articular/Artralgia</h4>
+                        <p>Común. Mecanismos: inflamación sinovial (membrana de la articulación), acumulación de mucopolisacáridos en el líquido sinovial, coexistencia con otras enfermedades autoinmunes como Artritis Reumatoide (más frecuente en Hashimoto).</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3, AINEs (con precaución), dieta antiinflamatoria, ejercicio de bajo impacto, investigar si hay otra condición autoinmune.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4 class="text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">👁️</span>Ojos Secos</h4>
-                    <p class="text-sm">Co-ocurrente, especialmente con Sjögren/Hashimoto. Mecanismos: autoinmunidad afectando glándulas lacrimales, inflamación. Abordaje: optimizar T4/T3, lágrimas artificiales, manejo inflamación.</p>
+                <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">👁️</span>Ojos Secos</h4>
+                        <p>Puede ocurrir, a menudo asociado con el Síndrome de Sjögren (otra enfermedad autoinmune que puede coexistir con Hashimoto). Mecanismos: ataque autoinmune a las glándulas lacrimales, inflamación sistémica, alteración en la composición de la lágrima.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3, lágrimas artificiales, tapones lagrimales, manejo de la inflamación, investigar Sjögren.</div>
+                    </div>
+                </div>
+                 <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">👂</span>Hipoacusia (Pérdida Auditiva)</h4>
+                        <p>Se ha reportado asociación. Mecanismos: posible disfunción del oído interno (cóclea) por alteración metabólica o efectos autoinmunes directos (en Hashimoto). Puede afectar frecuencias altas inicialmente.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Evaluación auditiva, optimizar T4/T3 (algunos casos reportan mejoría), descartar otras causas.</div>
+                    </div>
+                </div>
+                 <div class="card text-sm md:text-base">
+                    <div class="card-content">
+                        <h4 class="text-lg md:text-xl font-semibold mb-2 flex items-center"><span class="icon-placeholder">🌀</span>Mareos y Vértigo</h4>
+                        <p>Pueden ocurrir. Mecanismos: alteraciones metabólicas afectando el sistema vestibular (oído interno), cambios en flujo sanguíneo cerebral, o disfunción autonómica. A veces se describen síndromes similares a Meniere.</p>
+                        <div class="explanation-block"><strong>Abordaje:</strong> Optimizar T4/T3, evaluación vestibular, manejo de síntomas específicos.</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="consideraciones" class="mb-12 scroll-mt-24">
-            <h2 class="section-title">Consideraciones Adicionales y Conclusión</h2>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3" style="color: #008080;">Importancia de la Individualización y Colaboración Profesional</h3>
-                <p class="mb-3">El manejo del hipotiroidismo requiere un enfoque altamente individualizado. No existe un tratamiento "talla única". La dosis de levotiroxina, las intervenciones dietéticas y los suplementos deben ajustarse a las necesidades únicas de cada paciente.</p>
-                <p class="mb-3">La persistencia de síntomas a pesar de TSH normalizada subraya la necesidad de una colaboración estrecha con endocrinólogos, médicos de atención primaria y nutricionistas para explorar factores como problemas de conversión T4-T3, deficiencias nutricionales, salud mitocondrial e inflamación.</p>
-                
-                <div class="mt-6 p-4 border-l-4 border-yellow-500 bg-yellow-100 text-yellow-800 rounded-md">
-                    <h4 class="font-bold text-lg mb-2">⚠️ Advertencia Importante</h4>
-                    <p class="text-sm">La información presentada en esta infografía tiene fines exclusivamente educativos e informativos. No pretende, bajo ninguna circunstancia, sustituir la consulta médica profesional, el diagnóstico o el tratamiento individualizado.</p>
-                    <p class="text-sm mt-2">Cualquier decisión relacionada con su salud, incluyendo cambios en medicación o dieta, debe ser tomada únicamente en consulta y bajo la supervisión de un profesional de la salud cualificado.</p>
+            <h2 class="section-title">Consideraciones Adicionales</h2>
+            <div class="card text-sm md:text-base">
+                <div class="card-content">
+                    <h3 class="text-lg md:text-xl font-semibold mb-3" style="color: #008080;">Individualización y Colaboración Profesional</h3>
+                    <p class="mb-3">El manejo del hipotiroidismo es único para cada persona. La dosis de levotiroxina (L-T4), la posible necesidad de T3, las intervenciones dietéticas y los suplementos deben personalizarse bajo supervisión médica.</p>
+                    <p class="mb-3">Si los síntomas persisten a pesar de una TSH "normal", es crucial una colaboración estrecha con endocrinólogos y otros profesionales. Se deben explorar factores como problemas de conversión T4 a T3, deficiencias nutricionales no corregidas, salud mitocondrial, disbiosis intestinal, SIBO, hipoclorhidria, inflamación crónica y otras posibles comorbilidades autoinmunes.</p>
+                    
+                    <div class="mt-6 p-4 border-l-4 border-yellow-500 bg-yellow-100 text-yellow-800 rounded-md">
+                        <h4 class="font-bold text-lg mb-2">⚠️ Advertencia Importante</h4>
+                        <p class="text-sm">Esta infografía tiene fines educativos e informativos. No sustituye la consulta médica profesional, el diagnóstico o el tratamiento individualizado. Cualquier cambio en su tratamiento debe ser supervisado por un médico cualificado.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="text-center p-6 bg-slate-800 text-slate-300 text-sm">
+    <footer class="text-center p-6 bg-slate-800 text-slate-300 text-xs md:text-sm">
         <p>&copy; 2025 Infografía sobre Hipotiroidismo. Basado en investigación integral.</p>
         <p>Consulte siempre a un profesional médico para obtener asesoramiento personalizado.</p>
     </footer>
 
     <script>
-        function processLabel(label, maxLength = 16) {
+        function processLabel(label, maxLength = 14) { 
             if (typeof label !== 'string') {
                 return label; 
             }
@@ -438,91 +742,94 @@
                 legend: {
                     position: 'bottom',
                     labels: {
-                        font: { size: 10 },
-                        boxWidth: 20,
-                        padding:15
+                        font: { size: 9 }, 
+                        boxWidth: 15, 
+                        padding: 10 
                     }
                 },
                 tooltip: {
                     callbacks: {
                         title: tooltipTitleCallback
                     },
-                    bodyFont: { size: 10 },
-                    titleFont: { size: 12 }
+                    bodyFont: { size: 9 },
+                    titleFont: { size: 11 }
                 }
             }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            const prevalenciaCtx = document.getElementById('prevalenciaChart');
-            if (prevalenciaCtx) {
-                new Chart(prevalenciaCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: [processLabel('Personas con Hipotiroidismo (Estimado)'), processLabel('Resto de la Población (Estimado)')],
-                        datasets: [{
-                            label: 'Prevalencia Estimada',
-                            data: [8, 92], 
-                            backgroundColor: ['#FF7F50', '#ADD8E6'],
-                            borderColor: ['#FFFFFF', '#FFFFFF'],
-                            borderWidth: 2
-                        }]
-                    },
-                    options: { ...sharedChartOptions }
-                });
-            }
-
-            const causasCtx = document.getElementById('causasChart');
-            if (causasCtx) {
-                 new Chart(causasCtx, {
-                    type: 'pie',
-                    data: {
-                        labels: [processLabel('Tiroiditis de Hashimoto'), processLabel('Deficiencia de Yodo'), processLabel('Causas Iatrogénicas'), processLabel('Otras Deficiencias/Factores')],
-                        datasets: [{
-                            label: 'Distribución de Causas Comunes',
-                            data: [60, 15, 15, 10], 
-                            backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4'],
-                             borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
-                            borderWidth: 2
-                        }]
-                    },
-                    options: { ...sharedChartOptions }
-                });
-            }
-            
-            const micronutrientesCtx = document.getElementById('micronutrientesChart');
-            if (micronutrientesCtx) {
-                new Chart(micronutrientesCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: [processLabel('Selenio'), processLabel('Hierro'), processLabel('Vitamina D'), processLabel('Zinc'), processLabel('Vitamina B12')],
-                        datasets: [{
-                            label: 'Importancia Relativa para Función Tiroidea',
-                            data: [90, 85, 80, 75, 70], 
-                            backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4', '#ADD8E6'],
-                            borderColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4', '#ADD8E6'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        ...sharedChartOptions,
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                max: 100,
-                                ticks: { font: {size: 10} }
-                            },
-                            y: {
-                                ticks: { font: {size: 10} }
-                            }
+            try {
+                const prevalenciaCtx = document.getElementById('prevalenciaChart');
+                if (prevalenciaCtx) {
+                    new Chart(prevalenciaCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: [processLabel('Hipotiroidismo (Est.)', 14), processLabel('Resto Población (Est.)', 14)],
+                            datasets: [{
+                                label: 'Prevalencia Estimada',
+                                data: [8, 92], 
+                                backgroundColor: ['#FF7F50', '#ADD8E6'],
+                                borderColor: ['#FFFFFF', '#FFFFFF'],
+                                borderWidth: 2
+                            }]
                         },
-                        plugins: {
-                            ...sharedChartOptions.plugins,
-                            legend: { display: false }
+                        options: { ...sharedChartOptions }
+                    });
+                }
+
+                const causasCtx = document.getElementById('causasChart');
+                if (causasCtx) {
+                    new Chart(causasCtx, {
+                        type: 'pie',
+                        data: {
+                            labels: [processLabel('Hashimoto', 14), processLabel('Def. Yodo', 14), processLabel('Iatrogénicas', 14), processLabel('Otras Causas', 14)],
+                            datasets: [{
+                                label: 'Distribución de Causas Comunes',
+                                data: [60, 15, 15, 10], 
+                                backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4'],
+                                borderColor: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
+                                borderWidth: 2
+                            }]
+                        },
+                        options: { ...sharedChartOptions }
+                    });
+                }
+                
+                const micronutrientesCtx = document.getElementById('micronutrientesChart');
+                if (micronutrientesCtx) {
+                    new Chart(micronutrientesCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: [processLabel('Selenio', 14), processLabel('Hierro', 14), processLabel('Vitamina D', 14), processLabel('Zinc', 14), processLabel('Vitamina B12', 14)],
+                            datasets: [{
+                                label: 'Importancia Relativa',
+                                data: [90, 85, 80, 75, 70], 
+                                backgroundColor: ['#FF7F50', '#008080', '#FFD700', '#FF69B4', '#ADD8E6'],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            ...sharedChartOptions,
+                            indexAxis: 'y',
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    max: 100,
+                                    ticks: { font: {size: 8} } 
+                                },
+                                y: {
+                                    ticks: { font: {size: 9} } 
+                                }
+                            },
+                            plugins: {
+                                ...sharedChartOptions.plugins,
+                                legend: { display: false }
+                            }
                         }
-                    }
-                });
+                    });
+                }
+            } catch (error) {
+                 console.error("Error al inicializar los gráficos:", error);
             }
 
             // Gemini API Integration
@@ -580,7 +887,7 @@
                             result.candidates[0].content.parts.length > 0) {
                             
                             let rawText = result.candidates[0].content.parts[0].text;
-                            let lines = rawText.split('\n'); // Split by actual newline character
+                            let lines = rawText.split('\n'); 
                             let htmlOutput = "";
                             let inList = false;
 
@@ -600,11 +907,11 @@
                                     }
                                     if (currentLine !== "") {
                                         htmlOutput += "<p>" + currentLine + "</p>\n";
-                                    }
+                                    } 
                                 }
                             }
 
-                            if (inList) { // Ensure any open list is closed
+                            if (inList) { 
                                 htmlOutput += "</ul>\n";
                             }
                             geminiResponseDiv.innerHTML = htmlOutput.trim();
@@ -615,7 +922,7 @@
                         }
                     } catch (error) {
                         console.error('Error al llamar a la API de Gemini:', error);
-                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Ocurrió un error al intentar obtener los consejos: ' + error.message + '. Por favor, revisa la consola para más detalles.</p>';
+                        geminiResponseDiv.innerHTML = '<p class="text-red-600">Ocurrió un error al intentar obtener los consejos: ' + error.message + '. Si el error persiste, puede que la API Key no esté configurada.</p>';
                     } finally {
                         geminiLoader.classList.add('hidden');
                         geminiResponseDiv.classList.remove('hidden');
